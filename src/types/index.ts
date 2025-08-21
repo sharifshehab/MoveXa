@@ -1,4 +1,4 @@
-
+export type { IUser, ILogin } from "./auth.type"
 
 export interface IResponse<T> {
   statusCode: number;

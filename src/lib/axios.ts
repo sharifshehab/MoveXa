@@ -2,7 +2,7 @@ import config from "@/config";
 import axios, { AxiosRequestConfig } from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: config.baseUrl,
+  baseURL: `${config.baseUrl}/api/v1`,
   withCredentials: true,
 });
 
