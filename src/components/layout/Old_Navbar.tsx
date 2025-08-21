@@ -16,10 +16,11 @@ export default function Navbar() {
   return (
     <header className="">
 
-      {link.role === "PUBLIC" && (<Link to={link.href}>{link.label}</Link>)}         // Public routes
-      {link.role === data?.data?.role && (<Link to={link.href}>{link.label}</Link>)} // Protected routes
+{/*       {link.role === "PUBLIC" && (<Link to={link.href}>{link.label}</Link>)}         
+      {link.role === data?.data?.role && (<Link to={link.href}>{link.label}</Link>)}  */}
 
-      <ModeToggle /> // Dark Mode
+      <ModeToggle /> 
+      <h1>header</h1>
 
     </header>
   );

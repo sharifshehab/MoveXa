@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 import Footer from "./Footer";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar/Navbar";
 
-interface IProps {
+export interface IChildren {
   children: ReactNode;
 }
 
-export default function CommonLayout({ children }: IProps) {
+export default function CommonLayout({ children }: IChildren) {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
