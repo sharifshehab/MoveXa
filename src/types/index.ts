@@ -56,5 +56,9 @@ export interface IParcel {
   updatedAt: string
 }
 
+export interface IParcelReceive {
+  receiveParcel: boolean
+}
+
 export type TRole = "Super_Admin" | "Admin" | "Sender" | "Receiver";
 

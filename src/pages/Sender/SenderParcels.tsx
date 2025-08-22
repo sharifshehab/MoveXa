@@ -1,6 +1,6 @@
 // import { columns } from "@/components/ui/table/columns";
-import useTableColumns from "@/components/ui/table/columns";
-import { DataTable } from "@/components/ui/table/data-table";
+import useTableColumns from "@/hooks/useTableColumns";
+import { DataTable } from "@/components/ui/data-table";
 import { useSenderParcelsQuery } from "@/redux/features/sender/senderApi";
 import { useGetUserQuery } from "@/redux/features/user/userApi";
 
@@ -13,6 +13,7 @@ const SenderParcels = () => {
     if (isLoading || !senderAllParcels) {
         return "Loading..."
     }
+
     return (
         <div className="container mx-auto py-10">
             <DataTable columns={columns} data={senderAllParcels} />
@@ -20,3 +21,4 @@ const SenderParcels = () => {
     );
 };
 export default SenderParcels;
+
