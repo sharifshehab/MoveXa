@@ -9,7 +9,6 @@ export interface IUser {
     updatedAt?: string
 }
 
-
 export interface ILogin {
     accessToken: string
     refreshToken: string

@@ -1,7 +1,9 @@
+import ParcelForm from "@/components/modules/Sender/ParcelForm";
+
 const SendParcel = () => {
     return (
         <div>
-            send parcel
+            <ParcelForm></ParcelForm>
         </div>
     );
 };

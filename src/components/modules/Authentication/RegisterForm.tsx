@@ -35,7 +35,10 @@ const RegisterForm = () => {
             role: "Sender",
         },
     })
+/* 
 
+        : z.boolean(),
+*/
     const onSubmit: SubmitHandler<IUser> = async (data: z.infer<typeof registrationFormSchema>) => {
         try {
             const res = await registerUser(data).unwrap();

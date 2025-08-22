@@ -18,5 +18,43 @@ export interface ISidebarItem {
   }[];
 }
 
+export interface ITableData {
+    trackingID: string
+    receiverEmail: string
+    senderAddress: string
+    receiverAddress: string
+    weight: number
+    type: string
+    fee: number
+    payment: string
+    isApproved: boolean
+    currentStatus: string
+    createdAt: string
+}
+
+export interface IStatusLog {
+  status: string
+  timestamp: string
+  updatedBy: string
+}
+
+export interface IParcel {
+  _id: string
+  trackingID: string
+  senderID: string
+  receiverEmail: string
+  senderAddress: string
+  receiverAddress: string
+  weight: number
+  type: string
+  fee: number
+  payment: string
+  isApproved: boolean
+  currentStatus: string
+  statusLog: IStatusLog[]
+  createdAt: string
+  updatedAt: string
+}
+
 export type TRole = "Super_Admin" | "Admin" | "Sender" | "Receiver";
 
