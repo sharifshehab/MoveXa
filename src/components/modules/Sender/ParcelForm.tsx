@@ -2,24 +2,26 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { useGetUserQuery } from "@/redux/features/user/userApi";
+import { useCreateParcelMutation } from "@/redux/features/sender/senderApi";
 
 const ParcelForm = () => {
     const ParcelType = ["DOCUMENT", "FRAGILE", "CLOTHING", "OTHER"]
     const navigate = useNavigate()
-    const { data: user} = useGetUserQuery();
+    const { data: user } = useGetUserQuery();
+    const [createParcel] = useCreateParcelMutation();
 
     const parcelFormSchema = z.object({
         senderID: z.string(),
         receiverEmail: z.email(),
         senderAddress: z.string(),
         receiverAddress: z.string(),
-        weight: z.coerce.number().nonnegative(),
+        weight: z.string(),
         insideDhaka: z.boolean(),
         type: z.enum(ParcelType)
     });
@@ -27,27 +29,32 @@ const ParcelForm = () => {
     const form = useForm<z.infer<typeof parcelFormSchema>>({
         resolver: zodResolver(parcelFormSchema),
         defaultValues: {
-            senderID: user?._id,
+            senderID: "",
             receiverEmail: "",
             senderAddress: "",
             receiverAddress: "",
-            weight: 0,
+            weight: "",
             insideDhaka: true,
             type: "OTHER"
         },
     })
 
-    //: SubmitHandler<IUser>
-    const onSubmit = async (data: z.infer<typeof parcelFormSchema>) => {
-        try {
-            console.log(data);
-            // const res = await registerUser(data).unwrap();
 
-            // if (res.success) {
-            //     form.reset();
-            //     toast.success("Parcel created successfully.");
-            //     navigate('/sender/all-parcels')
-            // }
+    const onSubmit = async (data: z.infer<typeof parcelFormSchema>) => {
+        if (!user?._id) {
+            toast.error("User not found. Please log in again.")
+            return;
+        }
+        try {
+            const weight = Number(data.weight)
+            const parcelData = { ...data, weight, senderID: user?._id }
+            const res = await createParcel(parcelData).unwrap();
+
+            if (res.success) {
+                form.reset();
+                toast.success("Parcel created successfully.");
+                navigate('/sender/all-parcels')
+            }
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
@@ -116,7 +123,7 @@ const ParcelForm = () => {
                                     <FormItem>
                                         <FormLabel>Parcel Weight</FormLabel>
                                         <FormControl>
-                                            <Input type="number" placeholder="Write receiver address" {...field} />
+                                            <Input type="number" min={1} placeholder="Write receiver address" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -173,7 +180,7 @@ const ParcelForm = () => {
                             />
                         </div>{/* role */}
                     </div>{/* 2nd row */}
-                    <Button type="submit">Register</Button>
+                    <Button type="submit">Create Parcel</Button>
                 </form>
             </Form>
         </>

@@ -10,7 +10,7 @@ export const senderApi = baseApi.injectEndpoints({
         url: `/parcel/sender-parcels/${senderID}`,
         method: 'GET'
       }),
-      // providesTags: ["SENDER"],
+      providesTags: ["SENDER"],
       transformResponse: (response: IResponse<IParcel[]>) => response.data
     }),
 
@@ -21,7 +21,17 @@ export const senderApi = baseApi.injectEndpoints({
         method: 'PATCH',
       }),
     }),
+
+    // Create parcel
+    createParcel: builder.mutation({
+      query: (parcelData) => ({
+        url: '/parcel/send-parcel',
+        method: 'POST',
+        data: parcelData
+      }),
+      invalidatesTags: ["SENDER"]
+    }),
   })
 
 });
-export const { useSenderParcelsQuery, useCancelParcelMutation } = senderApi;
+export const { useSenderParcelsQuery, useCancelParcelMutation, useCreateParcelMutation } = senderApi;
