@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import LoginForm from "@/components/modules/Authentication/LoginForm";
+import { NavLink } from "react-router";
 
 const Login = () => {
     return (
@@ -7,6 +8,11 @@ const Login = () => {
             <div>
                 <LoginForm />
             </div>
+            <br />
+            <NavLink to={'/register'}>Register here</NavLink>
+            <br />
+            <NavLink to={'/'}>Home</NavLink>
+
         </Container>
     );
 };

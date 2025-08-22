@@ -1,28 +1,45 @@
 import { baseApi } from "@/redux/baseApi";
-import { IUser, IResponse } from "@/types";
+import { IResponse, IUser } from "@/types";
 
 export const userApi = baseApi.injectEndpoints({
-
-
   endpoints: (builder) => ({
-    // Register user
-    registerUser: builder.mutation<IResponse<IUser>, IUser>({
-      query: (userData) => ({
-        url: '/user/register',
-        method: 'POST',
-        data: userData,
+    // // Add data
+    // createService: builder.mutation<IResService, IService>({
+    //   query: (serviceData) => ({
+    //     url: '/services',
+    //     method: 'POST',
+    //     data: serviceData,
+    //   }),
+    //   invalidatesTags: ['SERVICE']
+    // }),
+
+    // Get user data
+    getUser: builder.query<IUser, void>({
+      query: () => ({
+        url: '/user/me',
+        method: 'GET',
       }),
+      transformResponse: (response: IResponse<IUser>) => response.data
     }),
 
-    // Login user
-    loginUser: builder.mutation<IResponse<IUser>, Partial<IUser>>({
-      query: (userData) => ({
-        url: '/auth/login',
-        method: 'POST',
-        data: userData,
-      }),
-      invalidatesTags: ['USER'],
-    }),
+    /* 
+    {
+    "statusCode": 200,
+    "success": true,
+    "message": "User info Retrieved Successfully",
+    "data": {
+        "_id": "688e329c5dd0b8d923979de7",
+        "name": "aryan",
+        "email": "aryan@gmail.com",
+        "password": "$2b$10$T67yoA4CCvSpon.iZ8GzGODX601i0JMYTML3jL.d0DSa7XmW.EKK2",
+        "role": "Sender",
+        "status": "Active",
+        "createdAt": "2025-08-02T15:45:32.494Z",
+        "updatedAt": "2025-08-02T16:55:55.251Z"
+    }
+}
+    */
+
     // // Get data by-id
     // getServiceById: builder.query<IResService, string>({
     //   query: (serviceID) => ({
@@ -51,5 +68,5 @@ export const userApi = baseApi.injectEndpoints({
   })
 
 });
-export const { useRegisterUserMutation, useLoginUserMutation } = userApi;
-// export const { useGetAllServicesQuery, useGetServiceByIdQuery, useregisterUserMutation, useUpdateServiceMutation, useDeleteServiceMutation } = userApi;
+export const { useGetUserQuery } = userApi;
+// export const { useGetUserQuery, useGetServiceByIdQuery, useCreateServiceMutation, useUpdateServiceMutation, useDeleteServiceMutation } = userApi;

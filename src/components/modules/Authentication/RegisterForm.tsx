@@ -6,13 +6,15 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 // import Password from "@/components/ui/Password";           // TO DO
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useRegisterUserMutation } from "@/redux/features/User/userApi";
+import { useRegisterUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { IUser } from "@/types";
+import { useNavigate } from "react-router";
 
 const RegisterForm = () => {
     const Role = ["Sender", "Receiver"]
     const [registerUser] = useRegisterUserMutation();
+    const navigate = useNavigate()
 
     const registrationFormSchema = z.object({
         name: z.string()
@@ -36,9 +38,12 @@ const RegisterForm = () => {
 
     const onSubmit: SubmitHandler<IUser> = async (data: z.infer<typeof registrationFormSchema>) => {
         try {
-            await registerUser(data).unwrap();
-            form.reset();
-            toast.success("User created successfully.")
+            const res = await registerUser(data).unwrap();
+            if (res.success) {
+                form.reset();
+                toast.success("User created successfully.");
+                navigate('/login')
+            }
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {

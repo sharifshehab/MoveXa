@@ -1,5 +1,6 @@
 export const role = {
-  superAdmin: "SUPER_ADMIN",
-  admin: "ADMIN",
-  user: "USER",
+  superAdmin: "Super_Admin",
+  admin: "Admin",
+  sender: "Sender",
+  receiver: "Receiver",
 };

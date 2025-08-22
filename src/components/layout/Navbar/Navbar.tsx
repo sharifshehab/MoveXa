@@ -13,6 +13,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { ModeToggle } from "../ModeToggler"
+import { NavLink } from "react-router"
+import { useGetUserQuery } from "@/redux/features/user/userApi"
 
 // Navigation links array to be used in both desktop and mobile menus
 // const navigationLinks = [
@@ -30,6 +32,8 @@ const navigationLinks = [
 ]
 
 export default function Component() {
+  const { data: userData, isLoading } = useGetUserQuery(undefined);
+
   return (
     <header className="border-b px-4 md:px-6">
       <div className="flex h-16 items-center justify-between gap-4">
@@ -111,10 +115,15 @@ export default function Component() {
 
         {/* Right side */}
         <div className="flex items-center gap-4">
-          {/* User menu */}
-          <UserMenu />
+          {isLoading ? ("Loading..") :           
+            (!userData?.email ?
+              <NavLink to={'/login'}><Button className="cursor-pointer">Login</Button></NavLink> :
+              // User menu
+              < UserMenu />)
+          }
           {/* Mode Toggler */}
           <ModeToggle />
+
         </div>
 
       </div>

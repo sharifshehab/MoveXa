@@ -1,17 +1,14 @@
 import Container from "@/components/Container";
 import RegisterForm from "@/components/modules/Authentication/RegisterForm";
 
-
-
-const Registration = () => {
+const Register = () => {
 
     return (
         <Container>
             <div>
-                <RegisterForm/>
+                <RegisterForm />
             </div>
         </Container>
     );
 };
-
-export default Registration;
+export default Register;

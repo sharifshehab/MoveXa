@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 // import Password from "@/components/ui/Password";           // TO DO
-import { useLoginUserMutation } from "@/redux/features/User/userApi";
+import { useLoginUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
+import { useNavigate } from "react-router";
 
-const LoginForm = () => {
-
+const
+    LoginForm = () => {
+    const navigate = useNavigate()
     const [loginUser] = useLoginUserMutation();
 
     const loginFormSchema = z.object({
@@ -29,8 +31,18 @@ const LoginForm = () => {
     const onSubmit = async (data: z.infer<typeof loginFormSchema>) => {
         try {
             const res = await loginUser(data).unwrap();
-            console.log(res);
-            form.reset();
+            // console.log(res);
+            switch (res.role) {
+                case "Super_Admin":
+                    form.reset();
+                    navigate('/admin');
+                    break;
+                default:
+                    form.reset();
+                    navigate(`/${res.role.toLowerCase()}`);
+                    break;
+            }
+
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error(error);
