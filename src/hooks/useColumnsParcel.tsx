@@ -124,6 +124,7 @@ const useColumnsParcel = () => {
             accessorKey: "createdAt",
             header: "Created",
         },
+        
         // Actions
         {
             id: "actions",

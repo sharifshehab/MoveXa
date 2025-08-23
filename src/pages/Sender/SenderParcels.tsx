@@ -3,13 +3,17 @@ import useColumnsParcel from "@/hooks/useColumnsParcel";
 import { useGetUserQuery } from "@/redux/features/auth/authApi";
 import { useSenderParcelsQuery } from "@/redux/features/sender/senderApi";
 import { useState } from "react";
+import { useSearchParams } from "react-router";
 
 const SenderParcels = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [limit] = useState(10);
+    const [searchParams] = useSearchParams();
+    const searchTerm = searchParams.get("searchTerm") || undefined;
+    const currentStatus = searchParams.get("currentStatus") || undefined;
 
     const { data: userData } = useGetUserQuery()
-    const { data: senderAllParcels, isLoading } = useSenderParcelsQuery({ senderID: userData?._id as string, page: currentPage, limit }, { skip: !userData?._id });
+    const { data: senderAllParcels, isLoading } = useSenderParcelsQuery({ senderID: userData?._id as string, page: currentPage, limit, searchTerm: searchTerm as string, currentStatus: currentStatus as string }, { skip: !userData?._id });
 
     const totalPage = senderAllParcels?.meta?.totalPage || 1;
 

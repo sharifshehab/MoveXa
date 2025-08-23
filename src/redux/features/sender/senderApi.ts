@@ -15,11 +15,11 @@ export const senderApi = baseApi.injectEndpoints({
     }),
 
     // Get sender all parcels <IParcel[], string>
-    senderParcels: builder.query<IParcel[], { senderID: string; page?: number; limit: number; } >({
-      query: ({ senderID, page, limit }) => ({
+    senderParcels: builder.query<IParcel[], { senderID: string; page?: number; limit: number; searchTerm: string; currentStatus: string; } >({
+      query: ({ senderID, page, limit, searchTerm, currentStatus }) => ({
         url: `/parcel/sender-parcels/${senderID}`,
         method: 'GET',
-        params: { page, limit }
+        params: { page, limit, searchTerm, currentStatus }
       }),
       providesTags: ["SENDER"],
       transformResponse: (response: IResponse<IParcel[]>) => response.data
