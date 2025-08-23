@@ -1,5 +1,5 @@
-import useTableColumns from "@/hooks/useTableColumns";
 import { DataTable } from "@/components/ui/data-table";
+import useColumnsParcel from "@/hooks/useColumnsParcel";
 import { useReceiverParcelsQuery } from "@/redux/features/receiver/receiverApi";
 import { useGetUserQuery } from "@/redux/features/user/userApi";
 
@@ -7,7 +7,7 @@ const ReceiverParcels = () => {
     const { data: userData } = useGetUserQuery()
     const { data: receiverAllParcels, isLoading } = useReceiverParcelsQuery(userData?.email as string, { skip: !userData?.email })
 
-    const columns = useTableColumns();
+    const columns = useColumnsParcel();
 
     if (isLoading || !receiverAllParcels) {
         return "Loading..."

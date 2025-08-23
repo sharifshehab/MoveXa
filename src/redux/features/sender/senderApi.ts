@@ -4,6 +4,16 @@ import { IResponse, IParcel } from "@/types";
 export const senderApi = baseApi.injectEndpoints({
 
   endpoints: (builder) => ({
+    // Create parcel
+    createParcel: builder.mutation({
+      query: (parcelData) => ({
+        url: '/parcel/send-parcel',
+        method: 'POST',
+        data: parcelData
+      }),
+      invalidatesTags: ["SENDER"]
+    }),
+
     // Get sender all parcels
     senderParcels: builder.query<IParcel[], string>({
       query: (senderID) => ({
@@ -14,6 +24,14 @@ export const senderApi = baseApi.injectEndpoints({
       transformResponse: (response: IResponse<IParcel[]>) => response.data
     }),
 
+    // Make payment
+    makePayment: builder.mutation({
+      query: (parcelId: string) => ({
+        url: `/payment/init-payment/${parcelId}`,
+        method: 'POST',
+      }),
+    }),
+
     // Cancel parcel
     cancelParcel: builder.mutation({
       query: (parcelId: string) => ({
@@ -22,16 +40,7 @@ export const senderApi = baseApi.injectEndpoints({
       }),
     }),
 
-    // Create parcel
-    createParcel: builder.mutation({
-      query: (parcelData) => ({
-        url: '/parcel/send-parcel',
-        method: 'POST',
-        data: parcelData
-      }),
-      invalidatesTags: ["SENDER"]
-    }),
   })
 
 });
-export const { useSenderParcelsQuery, useCancelParcelMutation, useCreateParcelMutation } = senderApi;
+export const { useCreateParcelMutation, useSenderParcelsQuery, useCancelParcelMutation, useMakePaymentMutation } = senderApi;

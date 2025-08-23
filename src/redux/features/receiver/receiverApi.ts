@@ -5,7 +5,7 @@ import { IResponse, IParcel, IParcelReceive } from "@/types";
 export const receiverApi = baseApi.injectEndpoints({
 
   endpoints: (builder) => ({
-    // Get sender all parcels 
+    // Get receiver all parcels 
     receiverParcels: builder.query<IParcel[], string>({
       query: (receiverEmail) => ({
         url: `/parcel/receiver-parcels/${receiverEmail}`,
@@ -24,7 +24,7 @@ export const receiverApi = baseApi.injectEndpoints({
       // transformResponse: (response: IResponse<IParcel[]>) => response.data
     }),
 
-    // Receive parcel
+    // Receive/Return parcel
     receiveParcel: builder.mutation<IResponse<IParcel>, { parcelId: string, updateData: IParcelReceive }>({
       query: ({ parcelId, updateData }) => ({
         url: `/parcel/parcel-received/${parcelId}`,
