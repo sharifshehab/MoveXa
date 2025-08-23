@@ -7,8 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
-import { useGetUserQuery } from "@/redux/features/user/userApi";
 import { useCreateParcelMutation } from "@/redux/features/sender/senderApi";
+import { useGetUserQuery } from "@/redux/features/auth/authApi";
 
 const ParcelForm = () => {
     const ParcelType = ["DOCUMENT", "FRAGILE", "CLOTHING", "OTHER"]

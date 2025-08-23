@@ -1,7 +1,7 @@
 import { DataTable } from "@/components/ui/data-table";
 import useColumnsParcel from "@/hooks/useColumnsParcel";
+import { useGetUserQuery } from "@/redux/features/auth/authApi";
 import { useReceiverParcelsQuery } from "@/redux/features/receiver/receiverApi";
-import { useGetUserQuery } from "@/redux/features/user/userApi";
 
 const ReceiverParcels = () => {
     const { data: userData } = useGetUserQuery()

@@ -13,9 +13,9 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { getSidebarItems } from "@/utils/getSidebarItems"
-import { useGetUserQuery } from "@/redux/features/user/userApi"
 import { TRole } from "@/types";
 import { NavLink } from "react-router";
+import { useGetUserQuery } from "@/redux/features/auth/authApi";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: userData } = useGetUserQuery(undefined);

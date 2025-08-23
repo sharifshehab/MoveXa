@@ -28,8 +28,16 @@ export const authApi = baseApi.injectEndpoints({
         method: 'POST',
       }),
     }),
+    // Get user data 
+    getUser: builder.query<IUser, void>({
+      query: () => ({
+        url: '/user/me',
+        method: 'GET',
+      }),
+      transformResponse: (response: IResponse<IUser>) => response.data
+    }),
 
   })
   
 });
-export const { useRegisterUserMutation, useLoginUserMutation, useLogOutUserMutation } = authApi;
+export const { useRegisterUserMutation, useLoginUserMutation, useLogOutUserMutation, useGetUserQuery } = authApi;

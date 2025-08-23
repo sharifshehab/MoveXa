@@ -13,11 +13,11 @@ import { IParcel } from "@/types"
 import { senderApi, useCancelParcelMutation, useMakePaymentMutation } from "@/redux/features/sender/senderApi"
 import { toast } from "sonner"
 import { useDispatch } from "react-redux"
-import { useGetUserQuery } from "@/redux/features/user/userApi"
 import { role } from "@/constants/role"
 import { useReceiveParcelMutation } from "@/redux/features/receiver/receiverApi"
 import { useApproveParcelMutation } from "@/redux/features/admin/adminApi"
 import PopupSelect from "@/components/PopupSelect"
+import { useGetUserQuery } from "@/redux/features/auth/authApi"
 
 const useColumnsParcel = () => {
     const { data: user } = useGetUserQuery();

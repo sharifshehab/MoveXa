@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/popover"
 import { ModeToggle } from "../ModeToggler"
 import { NavLink } from "react-router"
-import { useGetUserQuery } from "@/redux/features/user/userApi"
+import { useGetUserQuery } from "@/redux/features/auth/authApi"
 
 // Navigation links array to be used in both desktop and mobile menus
 // const navigationLinks = [

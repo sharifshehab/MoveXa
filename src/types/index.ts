@@ -56,9 +56,26 @@ export interface IParcel {
   updatedAt: string
 }
 
+export interface ITracking {
+  trackingID: string
+  weight: number
+  senderName: string
+  receiverName: string
+  parcelType: string
+  deliveryFee: number
+  statusHistory: StatusHistory[]
+}
+
+export interface StatusHistory {
+  status: string
+  timestamp: string
+  updatedBy: string
+}
+
 export interface IParcelReceive {
   receiveParcel: boolean
 }
+
 
 export type TRole = "Super_Admin" | "Admin" | "Sender" | "Receiver";
 

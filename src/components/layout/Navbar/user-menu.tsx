@@ -19,9 +19,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useLogOutUserMutation } from "@/redux/features/auth/authApi";
+import { authApi, useLogOutUserMutation } from "@/redux/features/auth/authApi";
 import { useAppDispatch } from "@/redux/hook";
-import { userApi } from "@/redux/features/user/userApi";
 
 export default function UserMenu() {
   const [logOutUser] = useLogOutUserMutation(undefined);
@@ -30,7 +29,7 @@ export default function UserMenu() {
   const handleLogOut = async () => {
     try {
       await logOutUser(undefined);
-      dispatch(userApi.util.resetApiState())
+      dispatch(authApi.util.resetApiState())
     } catch (error) {
       console.error(error);
     }

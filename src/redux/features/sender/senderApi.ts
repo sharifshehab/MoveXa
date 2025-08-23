@@ -1,5 +1,5 @@
 import { baseApi } from "@/redux/baseApi";
-import { IResponse, IParcel } from "@/types";
+import { IResponse, IParcel, ITracking } from "@/types";
 
 export const senderApi = baseApi.injectEndpoints({
 
@@ -14,14 +14,23 @@ export const senderApi = baseApi.injectEndpoints({
       invalidatesTags: ["SENDER"]
     }),
 
-    // Get sender all parcels
-    senderParcels: builder.query<IParcel[], string>({
-      query: (senderID) => ({
+    // Get sender all parcels <IParcel[], string>
+    senderParcels: builder.query<IParcel[], { senderID: string; page?: number; limit: number; } >({
+      query: ({ senderID, page, limit }) => ({
         url: `/parcel/sender-parcels/${senderID}`,
-        method: 'GET'
+        method: 'GET',
+        params: { page, limit }
       }),
       providesTags: ["SENDER"],
       transformResponse: (response: IResponse<IParcel[]>) => response.data
+    }),
+
+    // Track parcel 
+    trackParcel: builder.query<ITracking[], void>({
+      query: (trackingID) => ({
+        url: `/parcel/track-parcel/${trackingID}`,
+        method: 'GET'
+      }),
     }),
 
     // Make payment
@@ -43,4 +52,4 @@ export const senderApi = baseApi.injectEndpoints({
   })
 
 });
-export const { useCreateParcelMutation, useSenderParcelsQuery, useCancelParcelMutation, useMakePaymentMutation } = senderApi;
+export const { useCreateParcelMutation, useSenderParcelsQuery, useTrackParcelQuery, useCancelParcelMutation, useMakePaymentMutation } = senderApi;

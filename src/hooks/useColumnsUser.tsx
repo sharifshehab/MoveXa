@@ -12,8 +12,8 @@ import {
 import { IUser } from "@/types"
 import { toast } from "sonner"
 import { useAssignAdminMutation, useUserStatusMutation } from "@/redux/features/admin/adminApi"
-import { useGetUserQuery } from "@/redux/features/user/userApi"
 import { role } from "@/constants/role"
+import { useGetUserQuery } from "@/redux/features/auth/authApi"
 
 
 const useColumnsUser = () => {
