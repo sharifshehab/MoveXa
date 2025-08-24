@@ -2,19 +2,32 @@ import { DataTable } from "@/components/ui/data-table";
 import useColumnsParcel from "@/hooks/useColumnsParcel";
 import { useGetUserQuery } from "@/redux/features/auth/authApi";
 import { useReceiverParcelsQuery } from "@/redux/features/receiver/receiverApi";
+import { useState } from "react";
+import { useSearchParams } from "react-router";
 
 const ReceiverParcels = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [limit] = useState(10);
+    const [searchParams] = useSearchParams();
+    const searchTerm = searchParams.get("searchTerm") || undefined;
+    const currentStatus = searchParams.get("currentStatus") || undefined;
+
     const { data: userData } = useGetUserQuery()
-    const { data: receiverAllParcels, isLoading } = useReceiverParcelsQuery(userData?.email as string, { skip: !userData?.email })
+    const queryParams = { receiverEmail: userData?.email as string, page: currentPage, limit, searchTerm: searchTerm as string, currentStatus: currentStatus as string }
+    const { data: receiverAllParcels, isLoading } = useReceiverParcelsQuery(queryParams, { skip: !userData?.email })
+    const { parcels, meta } = receiverAllParcels || {};
+
+    const totalPage = meta?.totalPage || 1;
+    const page = { currentPage, setCurrentPage, totalPage }
 
     const columns = useColumnsParcel();
 
-    if (isLoading || !receiverAllParcels) {
+    if (isLoading || !parcels) {
         return "Loading..."
     }
     return (
         <div className="container mx-auto py-10">
-            <DataTable columns={columns} data={receiverAllParcels} />
+            <DataTable columns={columns} data={parcels} page={page} />
         </div>
     );
 };

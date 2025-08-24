@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
     ColumnDef,
     ColumnFiltersState,
@@ -28,6 +29,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { parcelStats } from "@/constants/parcelStats"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
@@ -45,10 +47,7 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
 
     const [searchParams, setSearchParams] = useSearchParams();
-
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-        []
-    )
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
 
     const table = useReactTable({
         data,
@@ -74,23 +73,20 @@ export function DataTable<TData, TValue>({
     }
 
     // Handle search
+    const params = new URLSearchParams(searchParams);
     const handleSearch = (value: string) => {
-        const params = new URLSearchParams(searchParams);
         params.set("searchTerm", value);
         setSearchParams(params);
     };
 
     // Handle filter
     const handleFilter = (value: string) => {
-        const params = new URLSearchParams(searchParams);
         params.set("currentStatus", value);
         setSearchParams(params);
     };
     // Clear state on page reload
     useEffect(() => {
-        const params = new URLSearchParams(searchParams);
-        params.delete("currentStatus");
-        params.delete("searchTerm");
+        ["currentStatus", "searchTerm"].forEach(item => params.delete(item));
         setSearchParams(params);
     }, []);
 
@@ -100,7 +96,7 @@ export function DataTable<TData, TValue>({
             <div className="flex items-center justify-between py-4">
                 {/* Search */}
                 <Input
-                    placeholder="Search by receiver email or type"
+                    placeholder="Search by parcel type or receiver email"
                     onChange={(event) =>
                         handleSearch(event.target.value)
                     }
@@ -114,21 +110,12 @@ export function DataTable<TData, TValue>({
                         </SelectTrigger>
                         <SelectContent>
                             <SelectGroup>
-                                <SelectItem value="REQUESTED">REQUESTED</SelectItem>
-                                <SelectItem value="CANCELLED">CANCELLED</SelectItem>
-                                <SelectItem value="BLOCKED">BLOCKED</SelectItem>
-                                <SelectItem value="DISPATCHED">DISPATCHED</SelectItem>
-                                <SelectItem value="IN_TRANSIT">IN_TRANSIT</SelectItem>
-                                <SelectItem value="DELIVERED">DELIVERED</SelectItem>
-                                <SelectItem value="RECEIVED">RECEIVED</SelectItem>
-                                <SelectItem value="RETURNED">RETURNED</SelectItem>
+                                {parcelStats.map((status, idx) => <SelectItem key={idx} value={status}>{status}</SelectItem>)}
                             </SelectGroup>
                         </SelectContent>
                     </Select>
                     <Button onClick={() => {
-                        const params = new URLSearchParams(searchParams);
-                        params.delete("currentStatus");
-                        params.delete("searchTerm");
+                        ["currentStatus", "searchTerm"].forEach(item => params.delete(item));
                         setSearchParams(params);
                     }}>Reset</Button>
                 </div>

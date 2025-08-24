@@ -1,0 +1,1 @@
+export const parcelStats = ["REQUESTED", "CANCELLED", "BLOCKED", "DISPATCHED", "IN_TRANSIT", "DELIVERED", "RECEIVED", "RETURNED",]

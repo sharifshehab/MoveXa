@@ -12,6 +12,7 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import { useParcelStatusMutation } from "@/redux/features/admin/adminApi"
 import { toast } from "sonner"
+import { parcelStats } from "@/constants/parcelStats"
 
 export default function PopupSelect({ parcelId, parcelCurrentStatus }: { parcelId: string, parcelCurrentStatus: string }) {
   const [status, setStatus] = useState<string>("")
@@ -55,12 +56,7 @@ export default function PopupSelect({ parcelId, parcelCurrentStatus }: { parcelI
                     <SelectValue placeholder="Select parcel status" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="REQUESTED">REQUESTED</SelectItem>
-                    <SelectItem value="CANCELLED">CANCELLED</SelectItem>
-                    <SelectItem value="BLOCKED">BLOCKED</SelectItem>
-                    <SelectItem value="DISPATCHED">DISPATCHED</SelectItem>
-                    <SelectItem value="IN_TRANSIT">IN_TRANSIT</SelectItem>
-                    <SelectItem value="DELIVERED">DELIVERED</SelectItem>
+                    {parcelStats.slice(0, -2).map((status, idx) => <SelectItem key={idx} value={status}>{status}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>

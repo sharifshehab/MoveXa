@@ -1,5 +1,5 @@
 import { baseApi } from "@/redux/baseApi";
-import { IResponse, IParcel, ITracking } from "@/types";
+import { IResponse, ITracking, IParcelParams, IParcelQuery,  } from "@/types";
 
 export const senderApi = baseApi.injectEndpoints({
 
@@ -14,15 +14,15 @@ export const senderApi = baseApi.injectEndpoints({
       invalidatesTags: ["SENDER"]
     }),
 
-    // Get sender all parcels <IParcel[], string>
-    senderParcels: builder.query<IParcel[], { senderID: string; page?: number; limit: number; searchTerm: string; currentStatus: string; } >({
+    // Get sender all parcels 
+    senderParcels: builder.query<IParcelQuery, IParcelParams>({
       query: ({ senderID, page, limit, searchTerm, currentStatus }) => ({
         url: `/parcel/sender-parcels/${senderID}`,
         method: 'GET',
         params: { page, limit, searchTerm, currentStatus }
       }),
       providesTags: ["SENDER"],
-      transformResponse: (response: IResponse<IParcel[]>) => response.data
+      transformResponse: (response: IResponse<IParcelQuery>) => response.data
     }),
 
     // Track parcel 
