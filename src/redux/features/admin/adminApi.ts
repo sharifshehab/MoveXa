@@ -1,17 +1,18 @@
 import { baseApi } from "@/redux/baseApi";
-import { IResponse, IParcel, IUser } from "@/types";
+import { IResponse, IUser, IParcelQuery, IParcelParams } from "@/types";
 
 export const adminApi = baseApi.injectEndpoints({
 
   endpoints: (builder) => ({
     // Get all parcels
-    allParcels: builder.query<IParcel[], void>({
-      query: () => ({
+    allParcels: builder.query<IParcelQuery, IParcelParams>({
+      query: ({ page, limit, searchTerm, currentStatus }) => ({
         url: '/parcel/all-parcels',
-        method: 'GET'
+        method: 'GET',
+        params: { page, limit, searchTerm, currentStatus }
       }),
       providesTags: ["ADMIN"],
-      transformResponse: (response: IResponse<IParcel[]>) => response.data
+      transformResponse: (response: IResponse<IParcelQuery>) => response.data
     }),
 
     // Approve parcel
