@@ -1,5 +1,5 @@
 import { baseApi } from "@/redux/baseApi";
-import { IResponse, ITracking, IParcelParams, IParcelQuery,  } from "@/types";
+import { IResponse, ITracking, IParcelParams, IParcelQuery, } from "@/types";
 
 export const senderApi = baseApi.injectEndpoints({
 
@@ -26,11 +26,12 @@ export const senderApi = baseApi.injectEndpoints({
     }),
 
     // Track parcel 
-    trackParcel: builder.query<ITracking[], void>({
+    trackParcel: builder.query<ITracking[], string>({
       query: (trackingID) => ({
         url: `/parcel/track-parcel/${trackingID}`,
         method: 'GET'
       }),
+      transformResponse: (response: IResponse<ITracking[]>) => response.data
     }),
 
     // Make payment

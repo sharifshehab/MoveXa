@@ -7,13 +7,13 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { IDeliveryHistory } from "@/types"
+import { ITracking } from "@/types"
 import PopupScroll from "@/components/ui/popup-scrollable"
 
 
-const useColumnsHistory = () => {
+const useColumnsTracking = () => {
 
-    const columns: ColumnDef<IDeliveryHistory>[] = [
+    const columns: ColumnDef<ITracking>[] = [
         {
             accessorKey: "trackingID",
             header: "Tracking ID",
@@ -23,24 +23,8 @@ const useColumnsHistory = () => {
             header: "Sender Name",
         },
         {
-            accessorKey: "senderEmail",
-            header: "Sender Email",
-        },
-        {
             accessorKey: "receiverName",
             header: "Receiver Name",
-        },
-        {
-            accessorKey: "receiverEmail",
-            header: "Receiver Email",
-        },
-        {
-            accessorKey: "sendFrom",
-            header: "Send From",
-        },
-        {
-            accessorKey: "receivedFrom",
-            header: "Receive From",
         },
         {
             accessorKey: "currentStatus",
@@ -51,6 +35,10 @@ const useColumnsHistory = () => {
             header: "Parcel Type",
         },
         {
+            accessorKey: "weight",
+            header: "weight",
+        },
+        {
             accessorKey: "deliveryFee",
             header: "Delivery Fee",
         },
@@ -59,7 +47,7 @@ const useColumnsHistory = () => {
         {
             id: "actions",
             cell: ({ row }) => {
-                const deliveryHistory = row.original
+                const trackParcel = row.original
                 return (
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -69,7 +57,7 @@ const useColumnsHistory = () => {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                            <PopupScroll status={deliveryHistory.statusHistory}></PopupScroll>
+                            <PopupScroll status={trackParcel.statusHistory}></PopupScroll>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 )
@@ -79,4 +67,4 @@ const useColumnsHistory = () => {
     return columns;
 };
 
-export default useColumnsHistory;
+export default useColumnsTracking;

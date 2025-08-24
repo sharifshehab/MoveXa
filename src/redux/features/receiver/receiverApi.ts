@@ -23,6 +23,7 @@ export const receiverApi = baseApi.injectEndpoints({
         url: `/parcel/delivery-history/${receiverEmail}`,
         method: 'GET'
       }),
+      providesTags: ["RECEIVER"],
       transformResponse: (response: IResponse<IDeliveryHistory[]>) => response.data
     }),
 

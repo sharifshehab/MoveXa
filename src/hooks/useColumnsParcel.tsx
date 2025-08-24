@@ -158,13 +158,13 @@ const useColumnsParcel = () => {
                             {
                                 user?.role === role.receiver &&
                                 <>
-                                    <DropdownMenuItem
+                                    <DropdownMenuItem disabled={["RECEIVED", "RETURNED"].includes(parcel.currentStatus)}
                                         onClick={() => handleReceiveParcel(parcel._id, true)}
                                     >
                                         Receive Parcel
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem
+                                    <DropdownMenuItem disabled={["RECEIVED", "RETURNED"].includes(parcel.currentStatus)}
                                         onClick={() => handleReceiveParcel(parcel._id, false)}
                                     >
                                         Return Parcel

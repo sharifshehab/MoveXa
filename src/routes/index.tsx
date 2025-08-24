@@ -12,6 +12,7 @@ import { receiverSidebarItems } from "./receiverSidebarItems";
 import { withAuth } from "@/utils/withAuth";
 import About from "@/pages/About";
 import Register from "@/pages/Register";
+import TrackParcel from "@/pages/TrackParcel";
 
 // const About = lazy(() => import("@/pages/About"));
 
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         Component: About,
         path: "about",
+      },
+      {
+        Component: TrackParcel,
+        path: "track-parcel",
       },
     ],
   }, // Common Layout route

@@ -10,6 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { IStatusLog } from "@/types"
+import { format } from "date-fns";
 
 export default function PopupScroll({ status }: { status: IStatusLog[] }) {
   return (
@@ -32,9 +33,9 @@ export default function PopupScroll({ status }: { status: IStatusLog[] }) {
                         <p>
                           <strong>{item.status}</strong>
                         </p>
-                        <p>{item.timestamp}</p>
-                        <p>{item.updatedBy}</p>
-                        <p>{item.note}</p>
+                        <p>Date & Time: {format(new Date(item.timestamp), "PPpp")}</p>
+                        <p>Action By: {item.updatedBy}</p>
+                        <p>Note: {item.note}</p>
                       </div>
                     ))
                   }

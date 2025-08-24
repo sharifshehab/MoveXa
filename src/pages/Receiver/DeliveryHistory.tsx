@@ -9,7 +9,7 @@ const DeliveryHistory = () => {
     const { data: deliveryHistory, isLoading } = useDeliveryHistoryQuery(user?.email as string)
 
     const columns = useColumnsHistory();
-    if (isLoading) {
+    if (isLoading || !deliveryHistory) {
         return "Loading..."
     }
     return (
