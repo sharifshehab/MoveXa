@@ -16,7 +16,7 @@ import { useDispatch } from "react-redux"
 import { role } from "@/constants/role"
 import { useReceiveParcelMutation } from "@/redux/features/receiver/receiverApi"
 import { useApproveParcelMutation } from "@/redux/features/admin/adminApi"
-import PopupSelect from "@/components/PopupSelect"
+import PopupSelect from "@/components/ui/popup-select"
 import { useGetUserQuery } from "@/redux/features/auth/authApi"
 
 const useColumnsParcel = () => {
@@ -106,7 +106,7 @@ const useColumnsParcel = () => {
         },
         {
             accessorKey: "fee",
-            header: "Parcel Fee",
+            header: "Delivery Fee",
         },
         {
             accessorKey: "payment",
@@ -124,12 +124,12 @@ const useColumnsParcel = () => {
             accessorKey: "createdAt",
             header: "Created",
         },
-        
+
         // Actions
         {
             id: "actions",
             cell: ({ row }) => {
-                const IParcel = row.original
+                const parcel = row.original
                 return (
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -144,11 +144,11 @@ const useColumnsParcel = () => {
                                 user?.role === role.sender &&
                                 <>
 
-                                    <DropdownMenuItem onClick={() => handleCancelParcel(IParcel._id)} disabled={IParcel.currentStatus === "CANCELLED"}>
+                                    <DropdownMenuItem onClick={() => handleCancelParcel(parcel._id)} disabled={parcel.currentStatus === "CANCELLED"}>
                                         Cancel Parcel
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem onClick={() => handleParcelPayment(IParcel._id)} disabled={IParcel.payment === "PAID"}>
+                                    <DropdownMenuItem onClick={() => handleParcelPayment(parcel._id)} disabled={parcel.payment === "PAID"}>
                                         Make Payment
                                     </DropdownMenuItem>
                                 </>
@@ -159,13 +159,13 @@ const useColumnsParcel = () => {
                                 user?.role === role.receiver &&
                                 <>
                                     <DropdownMenuItem
-                                        onClick={() => handleReceiveParcel(IParcel._id, true)}
+                                        onClick={() => handleReceiveParcel(parcel._id, true)}
                                     >
                                         Receive Parcel
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem
-                                        onClick={() => handleReceiveParcel(IParcel._id, false)}
+                                        onClick={() => handleReceiveParcel(parcel._id, false)}
                                     >
                                         Return Parcel
                                     </DropdownMenuItem>
@@ -176,7 +176,7 @@ const useColumnsParcel = () => {
                             {
                                 (user?.role === role.admin || user?.role === role.superAdmin) &&
                                 <>
-                                    <PopupSelect parcelId={IParcel._id} parcelCurrentStatus={IParcel.currentStatus}></PopupSelect>
+                                    <PopupSelect parcelId={parcel._id} parcelCurrentStatus={parcel.currentStatus}></PopupSelect>
                                 </>
                             }
                             {/* Super Admin */}
@@ -184,7 +184,7 @@ const useColumnsParcel = () => {
                                 user?.role === role.superAdmin &&
                                 <>
                                     <DropdownMenuItem
-                                        onClick={() => handleApproveParcel(IParcel._id)}
+                                        onClick={() => handleApproveParcel(parcel._id)}
                                     >
                                         Approve Parcel
                                     </DropdownMenuItem>

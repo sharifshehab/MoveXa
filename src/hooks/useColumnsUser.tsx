@@ -17,7 +17,7 @@ import { useGetUserQuery } from "@/redux/features/auth/authApi"
 
 
 const useColumnsUser = () => {
-    const { data: user } = useGetUserQuery();
+    const { data: userData } = useGetUserQuery();
     const [userStatus] = useUserStatusMutation();
     const [assignAdmin] = useAssignAdminMutation();
 
@@ -66,7 +66,7 @@ const useColumnsUser = () => {
         {
             id: "actions",
             cell: ({ row }) => {
-                const IUser = row.original
+                const user = row.original
                 return (
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -78,20 +78,20 @@ const useColumnsUser = () => {
                         <DropdownMenuContent align="end">
 
                             <DropdownMenuItem
-                                onClick={() => handleUserStatus(IUser._id as string, 'Blocked')}
-                                className="justify-center" disabled={IUser.status === "Blocked"}>
+                                onClick={() => handleUserStatus(user._id as string, 'Blocked')}
+                                className="justify-center" disabled={user.status === "Blocked"}>
                                 Block User
                             </DropdownMenuItem>
                             <DropdownMenuItem
-                                onClick={() => handleUserStatus(IUser._id as string, "Active")}
-                                className="justify-center" disabled={IUser.status === "Active"}>
+                                onClick={() => handleUserStatus(user._id as string, "Active")}
+                                className="justify-center" disabled={user.status === "Active"}>
                                 Active User
                             </DropdownMenuItem>
                             {
-                                user?.role === role.superAdmin &&
+                                userData?.role === role.superAdmin &&
                                 <>
                                     <DropdownMenuSeparator />
-                                    <Button className="w-full" onClick={() => handleAdminRole(IUser._id as string)}>Make Admin</Button>
+                                    <Button className="w-full" onClick={() => handleAdminRole(user._id as string)}>Make Admin</Button>
                                 </>
                             }
                         </DropdownMenuContent>

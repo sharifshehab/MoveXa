@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./select"
 import { useParcelStatusMutation } from "@/redux/features/admin/adminApi"
 import { toast } from "sonner"
 import { parcelStats } from "@/constants/parcelStats"

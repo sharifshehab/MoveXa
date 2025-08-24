@@ -42,13 +42,15 @@ export interface ITracking {
     receiverName: string
     parcelType: string
     deliveryFee: number
-    statusHistory: IStatusHistory[]
+    statusHistory: IStatusLog[]
 }
 
-export interface IStatusHistory {
-    status: string
-    timestamp: string
-    updatedBy: string
+export interface IDeliveryHistory extends ITracking {
+    senderEmail: string
+    receiverEmail: string
+    sendFrom: string
+    receivedFrom: string
+    statusHistory: IStatusLog[]
 }
 
 export interface IParcelReceive {
@@ -63,5 +65,8 @@ export interface IParcelParams {
     searchTerm?: string
     currentStatus?: string
 }
+
+
+
 
 

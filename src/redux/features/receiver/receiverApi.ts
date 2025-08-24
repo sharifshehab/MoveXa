@@ -1,12 +1,13 @@
 import { baseApi } from "@/redux/baseApi";
 import { IResponse, IParcel, IParcelReceive, IParcelParams, IParcelQuery } from "@/types";
+import { IDeliveryHistory } from "@/types/parcel.type";
 
 
 export const receiverApi = baseApi.injectEndpoints({
 
   endpoints: (builder) => ({
     // Get receiver all parcels 
-    receiverParcels: builder.query<IParcelQuery, Partial<IParcelParams>>({
+    receiverParcels: builder.query<IParcelQuery, IParcelParams>({
       query: ({ receiverEmail, page, limit, searchTerm, currentStatus }) => ({
         url: `/parcel/receiver-parcels/${receiverEmail}`,
         method: 'GET',
@@ -16,13 +17,13 @@ export const receiverApi = baseApi.injectEndpoints({
       transformResponse: (response: IResponse<IParcelQuery>) => response.data
     }),
 
-    // Delivery history <IParcel[], string>
-    deliveryHistory: builder.query({
+    // Delivery history 
+    deliveryHistory: builder.query<IDeliveryHistory[], string>({
       query: (receiverEmail) => ({
         url: `/parcel/delivery-history/${receiverEmail}`,
         method: 'GET'
       }),
-      // transformResponse: (response: IResponse<IParcel[]>) => response.data
+      transformResponse: (response: IResponse<IDeliveryHistory[]>) => response.data
     }),
 
     // Receive/Return parcel

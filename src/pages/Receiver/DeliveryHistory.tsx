@@ -1,7 +1,20 @@
+import { HistoryDataTable } from "@/components/ui/history-data-table";
+import useColumnsHistory from "@/hooks/useColumnsHistory";
+import { useGetUserQuery } from "@/redux/features/auth/authApi";
+import { useDeliveryHistoryQuery } from "@/redux/features/receiver/receiverApi";
+
 const DeliveryHistory = () => {
+
+    const { data: user } = useGetUserQuery();
+    const { data: deliveryHistory, isLoading } = useDeliveryHistoryQuery(user?.email as string)
+
+    const columns = useColumnsHistory();
+    if (isLoading) {
+        return "Loading..."
+    }
     return (
-        <div>
-            delivery history
+        <div className="container mx-auto py-10">
+            <HistoryDataTable columns={columns} data={deliveryHistory!} />
         </div>
     );
 };
