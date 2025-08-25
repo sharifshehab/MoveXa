@@ -134,14 +134,17 @@
 }
 
 @layer components {
+  section{
+    padding: 140px 0;
+  }
   .heading {
-    @apply text-[40px] leading-14 text-secondary font-yantramanav font-black;
+    @apply text-secondary font-yantramanav font-black;
   }
   .title {
-    @apply text-xl text-secondary font-yantramanav font-bold;
+    @apply text-secondary font-yantramanav font-bold;
   }
-  .mxa-btn {
-    @apply text-white bg-primary font-yantramanav font-medium;
+  .flex-center {
+    @apply flex items-center;
   }
   
 }
