@@ -135,10 +135,10 @@
 
 @layer components {
   .heading {
-    @apply text-[40px] text-secondary font-yantramanav font-black;
+    @apply text-[40px] leading-14 text-secondary font-yantramanav font-black;
   }
   .title {
-    @apply text-2xl text-secondary font-yantramanav font-bold;
+    @apply text-xl text-secondary font-yantramanav font-bold;
   }
   .mxa-btn {
     @apply text-white bg-primary font-yantramanav font-medium;
