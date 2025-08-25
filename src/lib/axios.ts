@@ -10,7 +10,6 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   function (config) {
     // Do something before request is sent
-
     return config;
   },
   function (error) {
@@ -55,7 +54,7 @@ axiosInstance.interceptors.response.use(
       error.response.data.message === "jwt expired" &&
       !originalRequest._retry
     ) {
-      console.log("Your token is expired");
+      // console.log("Your token is expired");
 
       originalRequest._retry = true;
 
@@ -69,8 +68,8 @@ axiosInstance.interceptors.response.use(
 
       isRefreshing = true;
       try {
-        const res = await axiosInstance.post("/auth/refresh-token");
-        console.log("New Token arrived", res);
+        await axiosInstance.post("/auth/refresh-token");
+        // console.log("New Token arrived", res);
 
         processQueue(null);
 

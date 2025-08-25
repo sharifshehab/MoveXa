@@ -8,7 +8,9 @@ export const withAuth = (Component: ComponentType, ...requiredRole: TRole[]) => 
         const { data: user, isLoading, isSuccess } = useGetUserQuery(undefined);
 
         if (!isSuccess) {
-            return 'Fetching...';
+            // return;
+            // return <Navigate to="/login" />;
+            return 'Fetching......';
         }
         if (isLoading) {
             return 'Loading...';
@@ -25,3 +27,5 @@ export const withAuth = (Component: ComponentType, ...requiredRole: TRole[]) => 
         return <Component />;
     };
 };
+
+

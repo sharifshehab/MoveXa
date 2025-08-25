@@ -1,7 +1,21 @@
+@font-face {
+  font-family: Yantramanav;
+  src: url("./assets/fonts/Yantramanav-Regular.ttf");
+}
+@font-face {
+  font-family: Public_Sans;
+  src: url("./assets/fonts/PublicSans-Regular.ttf");
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme  {
+--font-yantramanav: Yantramanav, "sans-serif";
+--font-public_sans: Public_Sans, "sans-serif";
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -49,9 +63,9 @@
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.705 0.213 47.604);
+  --primary: #fa4318;
   --primary-foreground: oklch(0.98 0.016 73.684);
-  --secondary: oklch(0.967 0.001 286.375);
+  --secondary: #080c24;
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -83,7 +97,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.646 0.222 41.116);
+  --primary: #fa4318;
   --primary-foreground: oklch(0.98 0.016 73.684);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
@@ -115,6 +129,19 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-public_sans text-[#565969] leading-7;
   }
+}
+
+@layer components {
+  .heading {
+    @apply text-[40px] text-secondary font-yantramanav font-black;
+  }
+  .title {
+    @apply text-2xl text-secondary font-yantramanav font-bold;
+  }
+  .mxa-btn {
+    @apply text-white bg-primary font-yantramanav font-medium;
+  }
+  
 }

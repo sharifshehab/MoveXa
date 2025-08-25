@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
         path: "about",
       },
       {
-        Component: TrackParcel,
+        Component: withAuth(TrackParcel, role.admin as TRole, role.superAdmin as TRole, role.receiver as TRole, role.sender as TRole),
         path: "track-parcel",
       },
     ],
