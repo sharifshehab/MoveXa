@@ -25,21 +25,22 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
-        <NavLink to={'/'}>Logo</NavLink>
-        <h2 className="bg-red-500">{userData?.role}</h2>
+      <SidebarHeader className="bg-secondary">
+        <NavLink to={'/'} className="text-card">Logo</NavLink>
+        <div className="bg-card py-2 text-center">
+          <h2 className="text-primary text-xl font-yantramanav"><span className="bg-primary px-2 text-card">{userData?.role}</span> Dashboard</h2>
+        </div>
       </SidebarHeader>
-      <SidebarContent>
-        {/* We create a SidebarGroup for each parent. */}
+      <SidebarContent className="bg-secondary">
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
             <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
+                  <SidebarMenuItem key={item.title} className="text-card">
                     <SidebarMenuButton asChild>
-                      <NavLink to={item.url}>{item.title}</NavLink>
+                      <NavLink to={item.url} className="rounded-none">{item.title}</NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

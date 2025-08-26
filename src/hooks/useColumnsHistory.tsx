@@ -63,12 +63,12 @@ const useColumnsHistory = () => {
                 return (
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="h-8 w-8 p-0">
-                                <span className="sr-only">See History</span>
+                            <Button variant="ghost" className="h-8 w-8 p-0 text-primary cursor-pointer">
+                                <span className="sr-only cursor-pointer">See History</span>
                                 <MoreHorizontal className="h-4 w-4" />
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
+                        <DropdownMenuContent align="end" className="rounded-none">
                             <PopupScroll status={deliveryHistory.statusHistory}></PopupScroll>
                         </DropdownMenuContent>
                     </DropdownMenu>

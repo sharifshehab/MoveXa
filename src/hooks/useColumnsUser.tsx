@@ -85,13 +85,13 @@ const useColumnsUser = () => {
                             <DropdownMenuItem
                                 onClick={() => handleUserStatus(user._id as string, "Active")}
                                 className="justify-center" disabled={user.status === "Active"}>
-                                Active User
+                                Unblock User
                             </DropdownMenuItem>
                             {
                                 userData?.role === role.superAdmin &&
                                 <>
                                     <DropdownMenuSeparator />
-                                    <Button className="w-full" onClick={() => handleAdminRole(user._id as string)}>Make Admin</Button>
+                                    <Button className="w-full" onClick={() => handleAdminRole(user._id as string)} disabled={user?.role === "Admin"}>Make Admin</Button>
                                 </>
                             }
                         </DropdownMenuContent>

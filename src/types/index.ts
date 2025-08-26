@@ -2,6 +2,7 @@ import { ComponentType } from "react";
 
 export type { IUser, ILogin } from "./auth.type"
 export type { IStatusLog, IParcel, IMeta, IParcelQuery, ITracking, IDeliveryHistory, IParcelReceive, IParcelParams } from "./parcel.type"
+export type { IStats, IParcelStats, IUserStats, IPaymentStats } from "./stats.type"
 
 export interface IResponse<T> {
   statusCode: number;
@@ -20,17 +21,17 @@ export interface ISidebarItem {
 }
 
 export interface ITableData {
-    trackingID: string
-    receiverEmail: string
-    senderAddress: string
-    receiverAddress: string
-    weight: number
-    type: string
-    fee: number
-    payment: string
-    isApproved: boolean
-    currentStatus: string
-    createdAt: string
+  trackingID: string
+  receiverEmail: string
+  senderAddress: string
+  receiverAddress: string
+  weight: number
+  type: string
+  fee: number
+  payment: string
+  isApproved: boolean
+  currentStatus: string
+  createdAt: string
 }
 
 

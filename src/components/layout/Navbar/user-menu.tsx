@@ -1,7 +1,5 @@
 import {
   LogOutIcon,
-  PinIcon,
-  UserPenIcon,
 } from "lucide-react"
 
 import {
@@ -21,8 +19,12 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { authApi, useLogOutUserMutation } from "@/redux/features/auth/authApi";
 import { useAppDispatch } from "@/redux/hook";
+import { IUser } from "@/types";
+import { Link } from "react-router";
 
-export default function UserMenu() {
+export default function UserMenu({ user }: { user: IUser }) {
+  const { name, email, role } = user || {}
+
   const [logOutUser] = useLogOutUserMutation(undefined);
   const dispatch = useAppDispatch();
 
@@ -37,21 +39,21 @@ export default function UserMenu() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="h-auto p-0 hover:bg-transparent">
+      <DropdownMenuTrigger asChild className="cursor-pointer">
+        <Button variant="ghost" className="h-auto  p-0 hover:bg-transparent">
           <Avatar>
             <AvatarImage src="./avatar.jpg" alt="Profile image" />
-            <AvatarFallback>KK</AvatarFallback>
+            <AvatarFallback className="bg-card text-primary text-base">{ name.charAt(0).toUpperCase()}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="max-w-64" align="end">
+      <DropdownMenuContent className="max-w-64 rounded-none" align="end">
         <DropdownMenuLabel className="flex min-w-0 flex-col">
-          <span className="text-foreground truncate text-sm font-medium">
-            Keith Kennedy
+          <span className="text-secondary truncate text-sm font-medium capitalize">
+            {name}
           </span>
           <span className="text-muted-foreground truncate text-xs font-normal">
-            k.kennedy@originui.com
+            {email}
           </span>
         </DropdownMenuLabel>
 
@@ -60,18 +62,12 @@ export default function UserMenu() {
         <DropdownMenuGroup>
 
           <DropdownMenuItem>
-            <PinIcon size={16} className="opacity-60" aria-hidden="true" />
-            <span>Option 4</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem>
-            <UserPenIcon size={16} className="opacity-60" aria-hidden="true" />
-            <span>Option 5</span>
+            <Link to={role.toLowerCase()}>Dashboard</Link>
           </DropdownMenuItem>
 
         </DropdownMenuGroup>
 
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator/>
 
         <DropdownMenuItem>
           <LogOutIcon size={16} className="opacity-60" aria-hidden="true" />

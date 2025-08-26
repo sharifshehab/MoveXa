@@ -74,8 +74,8 @@ const ParcelForm = () => {
                                 name="receiverEmail"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Receiver Email</FormLabel>
-                                        <FormControl>
+                                        <FormLabel className="font-yantramanav text-secondary text-base p-1">Receiver Email</FormLabel>
+                                        <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write receiver email" {...field} />
                                         </FormControl>
                                         <FormMessage />
@@ -89,8 +89,8 @@ const ParcelForm = () => {
                                 name="receiverAddress"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Receiver Address</FormLabel>
-                                        <FormControl>
+                                        <FormLabel className="font-yantramanav text-secondary text-base p-1">Receiver Address</FormLabel>
+                                        <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write receiver address" {...field} />
                                         </FormControl>
                                         <FormMessage />
@@ -106,8 +106,8 @@ const ParcelForm = () => {
                                 name="senderAddress"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Sender Address</FormLabel>
-                                        <FormControl>
+                                        <FormLabel className="font-yantramanav text-secondary text-base p-1">Sender Address</FormLabel>
+                                        <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write sender address" {...field} />
                                         </FormControl>
                                         <FormMessage />
@@ -121,8 +121,8 @@ const ParcelForm = () => {
                                 name="weight"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Parcel Weight</FormLabel>
-                                        <FormControl>
+                                        <FormLabel className="font-yantramanav text-secondary text-base p-1">Parcel Weight</FormLabel>
+                                        <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input type="number" min={1} placeholder="Write receiver address" {...field} />
                                         </FormControl>
                                         <FormMessage />
@@ -138,9 +138,9 @@ const ParcelForm = () => {
                                 name="type"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Parcel Type</FormLabel>
+                                        <FormLabel className="font-yantramanav text-secondary text-base p-1">Parcel Type</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                            <FormControl>
+                                            <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                                 <SelectTrigger className="w-full">
                                                     <SelectValue placeholder="Select parcel type" />
                                                 </SelectTrigger>
@@ -160,11 +160,11 @@ const ParcelForm = () => {
                                 name="insideDhaka"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Inside Dhaka</FormLabel>
+                                        <FormLabel className="font-yantramanav text-secondary text-base p-1">Inside Dhaka</FormLabel>
                                         <Select
                                             onValueChange={(val) => field.onChange(val === "true")}
                                             defaultValue={field.value ? "true" : "false"}>
-                                            <FormControl>
+                                            <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                                 <SelectTrigger className="w-full">
                                                     <SelectValue placeholder="Select a user role" />
                                                 </SelectTrigger>
@@ -180,7 +180,7 @@ const ParcelForm = () => {
                             />
                         </div>{/* role */}
                     </div>{/* 2nd row */}
-                    <Button type="submit">Create Parcel</Button>
+                    <Button type="submit" className="rounded-none">Create Parcel</Button>
                 </form>
             </Form>
         </>

@@ -133,22 +133,22 @@ const useColumnsParcel = () => {
                 return (
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="h-8 w-8 p-0">
+                            <Button variant="ghost" className="h-8 w-8 p-0 text-primary cursor-pointer">
                                 <span className="sr-only">Open menu</span>
                                 <MoreHorizontal className="h-4 w-4" />
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
+                        <DropdownMenuContent align="end" className="rounded-none">
                             {/* Sender */}
                             {
                                 user?.role === role.sender &&
                                 <>
 
-                                    <DropdownMenuItem onClick={() => handleCancelParcel(parcel._id)} disabled={parcel.currentStatus === "CANCELLED"}>
+                                    <DropdownMenuItem onClick={() => handleCancelParcel(parcel._id)} disabled={parcel.currentStatus === "CANCELLED"} className="cursor-pointer hover:text-primary">
                                         Cancel Parcel
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem onClick={() => handleParcelPayment(parcel._id)} disabled={parcel.payment === "PAID"}>
+                                    <DropdownMenuItem onClick={() => handleParcelPayment(parcel._id)} disabled={parcel.payment === "PAID"} className="cursor-pointer hover:text-primary">
                                         Make Payment
                                     </DropdownMenuItem>
                                 </>

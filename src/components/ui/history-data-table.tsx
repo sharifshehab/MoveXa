@@ -32,14 +32,14 @@ export function HistoryDataTable<TData, TValue>({
     })
 
     return (
-        <div className="overflow-hidden rounded-md border">
+        <div className="overflow-hidden border rounded-none bg-secondary">
             <Table>
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                                 return (
-                                    <TableHead key={header.id}>
+                                    <TableHead key={header.id} className="text-primary font-yantramanav text-base py-3">
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(
@@ -59,6 +59,7 @@ export function HistoryDataTable<TData, TValue>({
                             <TableRow
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
+                                className="text-card"
                             >
                                 {row.getVisibleCells().map((cell) => (
                                     <TableCell key={cell.id}>

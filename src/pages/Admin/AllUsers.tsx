@@ -1,4 +1,5 @@
-import { DataTable } from "@/components/ui/data-table";
+import Container from "@/components/Container";
+import { HistoryDataTable } from "@/components/ui/history-data-table";
 import useColumnsUser from "@/hooks/useColumnsUser";
 import { useAllUsersQuery } from "@/redux/features/admin/adminApi";
 
@@ -10,9 +11,12 @@ const AllUsers = () => {
         return "Loading..."
     }
     return (
-        <div className="container mx-auto py-10">
-            <DataTable columns={columns} data={AllUsers} />
-        </div>
+        <Container>
+            <div className="mt-14">
+                <HistoryDataTable columns={columns} data={AllUsers} />
+            </div>
+        </Container>
+
     );
 };
 

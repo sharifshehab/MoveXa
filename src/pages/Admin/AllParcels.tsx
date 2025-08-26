@@ -1,3 +1,4 @@
+import Container from "@/components/Container";
 import { DataTable } from "@/components/ui/data-table";
 import useColumnsParcel from "@/hooks/useColumnsParcel";
 
@@ -26,9 +27,12 @@ const AllParcels = () => {
         return "Loading..."
     }
     return (
-        <div className="container mx-auto py-10">
+        <Container>
+            <div className="mt-10">
             <DataTable columns={columns} data={parcels} page={page} />
-        </div>
+            </div>
+        </Container>
+
     );
 };
 
