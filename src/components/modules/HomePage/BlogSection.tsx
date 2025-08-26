@@ -32,7 +32,7 @@ const BlogSection = () => {
     ]
     return (
         <section className="py-32">
-            <div className="container flex  items-center gap-16">
+            <div className="container flex-center flex-col gap-16">
                 <div className="text-center">
                     <h2 className="mx-auto mb-6 text-3xl font-semibold text-pretty md:text-4xl lg:max-w-3xl">
                         Blog Posts
@@ -42,11 +42,11 @@ const BlogSection = () => {
                     </p>
                 </div>
 
-                <div className="grid gap-y-10 sm:grid-cols-12 sm:gap-y-12 md:gap-y-16 lg:gap-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
                     {blogs.map((post) => (
                         <Card
                             key={post.id}
-                            className="order-last border-0 bg-transparent shadow-none sm:order-first sm:col-span-12 lg:col-span-10 lg:col-start-2"
+                            className="order-last border-0 bg-transparent shadow-none sm:order-first "
                         >
                             <div className="grid gap-y-6 sm:grid-cols-10 sm:gap-x-5 sm:gap-y-0 md:items-center md:gap-x-8 lg:gap-x-12">
                                 <div className="sm:col-span-5">
@@ -55,7 +55,7 @@ const BlogSection = () => {
                                             {post.tags?.map((tag) => <span key={tag}>{tag}</span>)}
                                         </div>
                                     </div>
-                                    <h3 className="text-xl font-semibold md:text-2xl lg:text-3xl">
+                                    <h3 className="heading text-2xl line-clamp-2">
                                         <a
                                             href={post.url}
                                             target="_blank"
@@ -64,7 +64,7 @@ const BlogSection = () => {
                                             {post.title}
                                         </a>
                                     </h3>
-                                    <p className="mt-4 text-muted-foreground md:mt-5">
+                                    <p className="mt-4 text-muted-foreground md:mt-5 line-clamp-3">
                                         {post.summary}
                                     </p>
                                     <div className="mt-6 flex items-center space-x-4 text-sm md:mt-8">

@@ -9,7 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useRegisterUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { IUser } from "@/types";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import Logo from "@/components/layout/Navbar/logo";
 
 const RegisterForm = () => {
     const Role = ["Sender", "Receiver"]
@@ -35,10 +36,10 @@ const RegisterForm = () => {
             role: "Sender",
         },
     })
-/* 
-
-        : z.boolean(),
-*/
+    /* 
+    
+            : z.boolean(),
+    */
     const onSubmit: SubmitHandler<IUser> = async (data: z.infer<typeof registrationFormSchema>) => {
         try {
             const res = await registerUser(data).unwrap();
@@ -55,19 +56,21 @@ const RegisterForm = () => {
         }
     }
     return (
-        <>
+        <div className="grid place-content-center place-items-center sm:h-screen py-16">
+            <Link to={"/"}><Logo></Logo></Link>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <div className="flex flex-col md:flex-row justify-between gap-4">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
+                    <h2 className="text-primary text-2xl mb-10 text-center">Sign Up</h2>
+                    <div className="flex flex-col md:flex-row justify-between gap-14">
                         <div className="flex-1">
                             <FormField
                                 control={form.control}
                                 name="name"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Name</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Name:</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Write your name" {...field} />
+                                            <Input placeholder="Write your name" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary" />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -80,9 +83,9 @@ const RegisterForm = () => {
                                 name="email"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Email</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Email:</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Write your email address" {...field} />
+                                            <Input placeholder="Write your email address" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary" />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -90,16 +93,16 @@ const RegisterForm = () => {
                             />
                         </div>{/* email */}
                     </div>{/* 1st row */}
-                    <div className="flex flex-col md:flex-row justify-between gap-4">
+                    <div className="flex flex-col md:flex-row justify-between gap-14">
                         <div className="flex-1">
                             <FormField
                                 control={form.control}
                                 name="role"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Role</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Role:</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                            <FormControl>
+                                            <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                                 <SelectTrigger className="w-full">
                                                     <SelectValue placeholder="Select a user role" />
                                                 </SelectTrigger>
@@ -119,8 +122,8 @@ const RegisterForm = () => {
                                 name="password"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Password</FormLabel>
-                                        <FormControl>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Password:</FormLabel>
+                                        <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write a password" {...field} />
                                             {/* <Password {...field}></Password> */}
                                         </FormControl>
@@ -130,10 +133,12 @@ const RegisterForm = () => {
                             />
                         </div>{/* password */}
                     </div>{/* 2nd row */}
-                    <Button type="submit">Register</Button>
+                    <Button type="submit">Sign Up</Button>
                 </form>
             </Form>
-        </>
+            <h3 className="text-lg text-secondary mt-6">Already a user? <span className="underline underline-offset-4 hover:opacity-70 hover:text-primary"><Link to={"/login"}>Login</Link></span></h3>
+
+        </div>
     );
 };
 

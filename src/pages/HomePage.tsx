@@ -19,8 +19,10 @@ const HomePage = () => {
                 <TestimonialSection />
                 <FaqSection />
                 <BlogSection />
-                <NewsletterSection />
             </Container>
+            <div className="bg-primary border-b border-b-neutral-500">
+                <NewsletterSection />
+            </div>
         </>
     );
 };

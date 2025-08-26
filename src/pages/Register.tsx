@@ -4,11 +4,9 @@ import RegisterForm from "@/components/modules/Authentication/RegisterForm";
 const Register = () => {
 
     return (
-        <Container>
-            <div>
+            <Container>
                 <RegisterForm />
-            </div>
-        </Container>
+            </Container>
     );
 };
 export default Register;

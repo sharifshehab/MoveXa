@@ -1,15 +1,20 @@
+import { IoIosSend } from "react-icons/io";
+
 const NewsletterSection = () => {
     return (
         <div className="grid grid-cols-4">
-            <div className="bg-primary"></div>
-            <div className="col-span-3 bg-secondary flex items-center">
-                <h2>SUBSCRIBE OUR LATEST NEWS & ARTICLES.</h2>
-                <div
-                    className="flex lg:flex-row flex-col items-center justify-between gap-[20px] w-full sm:w-[65%] mx-auto mt-12">
-                    <input placeholder="Enter your email..."
-                        className="py-4 px-4 w-full bg-[#6C6F87] border-2 border-gray-400 outline-none" />
+            <div className="bg-primary lg:col-span-1 col-span-4">
+                Logo
+            </div>
+            <div className="col-span-4 lg:col-span-3 bg-secondary flex-center flex-col md:flex-row justify-center gap-5 px-10 lg:px-16 py-14">
 
-                    <button className="w-full lg:w-fit py-4 px-12 bg-white text-black">submit
+                <h2 className="heading text-white text-2xl lg:text-3xl leading-10">SUBSCRIBE OUR LATEST NEWS & ARTICLES.</h2>
+                <div
+                    className="flex-center justify-between  w-full sm:w-[65%] mx-auto">
+                    <input placeholder="Enter your email..."
+                        className="py-3 px-4 w-full bg-white outline-none" />
+
+                    <button className="py-3 px-6 bg-primary"><IoIosSend size={28} className="text-white" />
                     </button>
                 </div>
             </div>

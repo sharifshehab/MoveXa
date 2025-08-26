@@ -7,7 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 // import Password from "@/components/ui/Password";           // TO DO
 import { useLoginUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import Logo from "@/assets/icons/Logo";
 
 const
     LoginForm = () => {
@@ -50,18 +51,20 @@ const
             }
         }
         return (
-            <>
+            <div className="grid place-content-center place-items-center sm:h-screen py-16">
+                <Link to={"/"}><Logo></Logo></Link>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                        <div className="flex flex-col md:flex-row justify-between gap-4">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
+                        <h2 className="text-primary text-2xl mb-10 text-center">Login</h2>
+                        <div className="flex flex-col md:flex-row justify-between gap-14">
                             <div className="flex-1">
                                 <FormField
                                     control={form.control}
                                     name="email"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Email</FormLabel>
-                                            <FormControl>
+                                            <FormLabel className="font-yantramanav text-primary text-base p-1">Email</FormLabel>
+                                            <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                                 <Input placeholder="Write your email address" {...field} />
                                             </FormControl>
                                             <FormMessage />
@@ -75,8 +78,8 @@ const
                                     name="password"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Password</FormLabel>
-                                            <FormControl>
+                                            <FormLabel className="font-yantramanav text-primary text-base p-1">Password</FormLabel>
+                                            <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                                 <Input placeholder="Write your password" {...field} />
                                                 {/* <Password {...field}></Password> */}
                                             </FormControl>
@@ -86,10 +89,11 @@ const
                                 />
                             </div>{/* password */}
                         </div>
-                        <Button type="submit">Log In</Button>
+                        <Button type="submit">Login</Button>
                     </form>
                 </Form>
-            </>
+                <h3 className="text-lg text-secondary mt-6">Don't have an account? <span className="underline underline-offset-4 hover:opacity-70 hover:text-primary"><Link to={"/register"}>Sign Up</Link></span></h3>
+            </div>
         );
     };
 

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const AboutSection = () => {
     return (
-        <section>
+        <section className="spacing">
             <div className="flex-center flex-col lg:flex-row justify-between">
                 <div className="flex-1">
                     <img src={aboutImage} alt="" />
