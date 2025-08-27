@@ -1,6 +1,8 @@
-import SenderParcels from "@/pages/Sender/SenderParcels";
-import SendParcel from "@/pages/Sender/SendParcel";
 import { ISidebarItem } from "@/types";
+import { lazy } from "react";
+
+const SenderParcels = lazy(() => import("@/pages/Sender/SenderParcels"));
+const SendParcel = lazy(() => import("@/pages/Sender/SendParcel"));
 
 export const senderSidebarItems: ISidebarItem[] = [
     {

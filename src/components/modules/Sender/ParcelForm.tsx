@@ -180,7 +180,7 @@ const ParcelForm = () => {
                             />
                         </div>{/* role */}
                     </div>{/* 2nd row */}
-                    <Button type="submit" className="rounded-none">Create Parcel</Button>
+                    <Button type="submit" className="rounded-none dark:bg-secondary">Create Parcel</Button>
                 </form>
             </Form>
         </>

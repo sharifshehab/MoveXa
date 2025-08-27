@@ -34,7 +34,7 @@ const ParcelTrackForm = () => {
     }, []);
 
     return (
-        <>
+        <div className="mb-8 w-full">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                     <div className="flex flex-col md:flex-row justify-between gap-4">
@@ -44,8 +44,8 @@ const ParcelTrackForm = () => {
                                 name="trackingId"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Tracking ID</FormLabel>
-                                        <FormControl>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Tracking ID</FormLabel>
+                                        <FormControl className="border-0 border-b border-b-primary dark:border-b-secondary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write parcel tracking id" {...field} />
                                         </FormControl>
                                         <FormMessage />
@@ -54,10 +54,10 @@ const ParcelTrackForm = () => {
                             />
                         </div>
                     </div>
-                    <Button type="submit">Track Parcel</Button>
+                    <Button type="submit" className="rounded-none dark:bg-white dark:text-secondary">Track Parcel</Button>
                 </form>
             </Form>
-        </>
+        </div>
     );
 };
 

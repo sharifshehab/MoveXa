@@ -14,15 +14,13 @@ const HomePage = () => {
             <HeroSection />
             <Container>
                 <AboutSection />
-                <ServiceSection />
                 <FactsSection />
+                <ServiceSection />
                 <TestimonialSection />
                 <FaqSection />
                 <BlogSection />
             </Container>
-            <div className="bg-primary border-b border-b-neutral-500">
-                <NewsletterSection />
-            </div>
+            <NewsletterSection />
         </>
     );
 };

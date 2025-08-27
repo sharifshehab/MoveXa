@@ -91,7 +91,7 @@ const useColumnsUser = () => {
                                 userData?.role === role.superAdmin &&
                                 <>
                                     <DropdownMenuSeparator />
-                                    <Button className="w-full" onClick={() => handleAdminRole(user._id as string)} disabled={user?.role === "Admin"}>Make Admin</Button>
+                                    <Button className="w-full dark:bg-secondary" onClick={() => handleAdminRole(user._id as string)} disabled={user?.role === "Admin"}>Make Admin</Button>
                                 </>
                             }
                         </DropdownMenuContent>

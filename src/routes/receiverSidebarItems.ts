@@ -1,6 +1,8 @@
-import DeliveryHistory from "@/pages/Receiver/DeliveryHistory";
-import ReceiverParcels from "@/pages/Receiver/ReceiverParcels";
 import { ISidebarItem } from "@/types";
+import { lazy } from "react";
+
+const ReceiverParcels = lazy(() => import("@/pages/Receiver/ReceiverParcels"));
+const DeliveryHistory = lazy(() => import("@/pages/Receiver/DeliveryHistory"));
 
 export const receiverSidebarItems: ISidebarItem[] = [
     {

@@ -1,5 +1,7 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Container from "../Container";
+import { Link } from "react-router";
+import Logo from "@/assets/icons/Logo";
 
 export default function Footer() {
   const socialLinks = [
@@ -45,19 +47,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-secondary">
+    <footer className="bg-secondary dark:bg-primary border-t">
       <Container>
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left text-white my-16">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
             {/* Logo */}
             <div className="flex items-center gap-2 lg:justify-start">
-              <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
-                // alt={logo.alt}
-                // title={logo.title}
-                className="h-8"
-              />
-              <h2 className="text-xl font-semibold">logo title</h2>
+              <>
+                <Link to={"/"} className="flex-center flex-col justify-center text-2xl text-white gap-2 font-semibold py-2">
+                  <Logo size={20} />
+                  MoveXa
+                </Link>
+              </>
             </div>
             <p className="text-white max-w-[70%] text-sm">
               description

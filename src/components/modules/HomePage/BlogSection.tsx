@@ -49,12 +49,7 @@ const BlogSection = () => {
                             className="order-last border-0 bg-transparent shadow-none sm:order-first "
                         >
                             <div className="grid gap-y-6 sm:grid-cols-10 sm:gap-x-5 sm:gap-y-0 md:items-center md:gap-x-8 lg:gap-x-12">
-                                <div className="sm:col-span-5">
-                                    <div className="mb-4 md:mb-6">
-                                        <div className="flex flex-wrap gap-3 text-xs tracking-wider text-muted-foreground uppercase md:gap-5 lg:gap-6">
-                                            {post.tags?.map((tag) => <span key={tag}>{tag}</span>)}
-                                        </div>
-                                    </div>
+                                <div className="sm:col-span-5 space-y-3">
                                     <h3 className="heading text-2xl line-clamp-2">
                                         <a
                                             href={post.url}
@@ -64,24 +59,24 @@ const BlogSection = () => {
                                             {post.title}
                                         </a>
                                     </h3>
-                                    <p className="mt-4 text-muted-foreground md:mt-5 line-clamp-3">
+                                    <p className="line-clamp-3 text dark:text-white">
                                         {post.summary}
                                     </p>
-                                    <div className="mt-6 flex items-center space-x-4 text-sm md:mt-8">
+                                    <div className="flex items-center space-x-4 text-sm">
                                         <span className="text-muted-foreground">{post.author}</span>
                                         <span className="text-muted-foreground">•</span>
                                         <span className="text-muted-foreground">
                                             {post.published}
                                         </span>
                                     </div>
-                                    <div className="mt-6 flex items-center space-x-2 md:mt-8">
+                                    <div className="lex items-center space-x-2">
                                         <a
                                             href={post.url}
                                             target="_blank"
                                             className="inline-flex items-center font-semibold hover:underline md:text-base"
                                         >
-                                            <span>Read more</span>
-                                            <ArrowRight className="ml-2 size-4 transition-transform" />
+                                            <span className="text-primary">Read more</span>
+                                            <ArrowRight className="text-primary ml-2 size-4 transition-transform" />
                                         </a>
                                     </div>
                                 </div>

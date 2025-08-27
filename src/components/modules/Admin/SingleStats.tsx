@@ -16,7 +16,7 @@ const SingleStats = ({ statsName, total, byStatus }: ISingleStats ) => {
             </div>
             <div className="flex-center flex-wrap justify-between gap-8">
                 {byStatus?.map(item => <div key={item?._id} className="text-center">
-                    <strong className="block text-sm font-medium text-card"> {item?._id} </strong>
+                    <strong className="block text-sm font-medium text-card dark:text-white"> {item?._id} </strong>
 
                     <p>
                         <span className="text-2xl font-medium text-primary">{item?.count} </span>

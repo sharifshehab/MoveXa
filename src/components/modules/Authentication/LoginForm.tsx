@@ -4,14 +4,12 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-// import Password from "@/components/ui/Password";           // TO DO
 import { useLoginUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router";
 import Logo from "@/assets/icons/Logo";
 
-const
-    LoginForm = () => {
+const LoginForm = () => {
         const navigate = useNavigate()
         const [loginUser] = useLoginUserMutation();
 
@@ -52,10 +50,15 @@ const
         }
         return (
             <div className="grid place-content-center place-items-center sm:h-screen py-16">
-                <Link to={"/"}><Logo></Logo></Link>
+                <>
+                    <Link to={"/"} className="flex-center flex-col text-2xl text-secondary font-semibold mb-6">
+                        <Logo />
+                        MoveXa
+                    </Link>
+                </>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
-                        <h2 className="text-primary text-2xl mb-10 text-center">Login</h2>
+                        <h2 className="text-primary dark:text-white text-3xl mb-10 text-center">Login</h2>
                         <div className="flex flex-col md:flex-row justify-between gap-14">
                             <div className="flex-1">
                                 <FormField
@@ -63,9 +66,9 @@ const
                                     name="email"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="font-yantramanav text-primary text-base p-1">Email</FormLabel>
+                                            <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Email</FormLabel>
                                             <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                                <Input placeholder="Write your email address" {...field} />
+                                                <Input placeholder="Write your email address" className="dark:text-white dark:placeholder:text-white" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -78,10 +81,9 @@ const
                                     name="password"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="font-yantramanav text-primary text-base p-1">Password</FormLabel>
+                                            <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Password</FormLabel>
                                             <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                                <Input placeholder="Write your password" {...field} />
-                                                {/* <Password {...field}></Password> */}
+                                                <Input type="password" placeholder="Write your password"  className="dark:text-white dark:placeholder:text-white"{...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -89,10 +91,10 @@ const
                                 />
                             </div>{/* password */}
                         </div>
-                        <Button type="submit">Login</Button>
+                        <Button variant={"primary"} className="p-5" type="submit">Login</Button>
                     </form>
                 </Form>
-                <h3 className="text-lg text-secondary mt-6">Don't have an account? <span className="underline underline-offset-4 hover:opacity-70 hover:text-primary"><Link to={"/register"}>Sign Up</Link></span></h3>
+                <h3 className="text-lg text-secondary mt-6">Don't have an account? <span className="underline underline-offset-4 hover:opacity-70"><Link to={"/register"}>Sign Up</Link></span></h3>
             </div>
         );
     };

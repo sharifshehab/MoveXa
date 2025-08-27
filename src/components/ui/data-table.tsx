@@ -117,7 +117,7 @@ export function DataTable<TData, TValue>({
                     <Button onClick={() => {
                         ["currentStatus", "searchTerm"].forEach(item => params.delete(item));
                         setSearchParams(params);
-                    }} className="rounded-none">Reset</Button>
+                    }} className="rounded-none dark:bg-secondary">Reset</Button>
                 </div>
             </div>
             {/* Table */}
@@ -147,7 +147,7 @@ export function DataTable<TData, TValue>({
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
-                                    className="text-card"
+                                    className="text-white"
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>

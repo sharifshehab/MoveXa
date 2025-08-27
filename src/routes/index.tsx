@@ -4,17 +4,19 @@ import { createBrowserRouter, Navigate } from "react-router";
 import { role } from "@/constants/role";
 import { TRole } from "@/types";
 import Homepage from "@/pages/HomePage";
-import Login from "@/pages/Login";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { adminSidebarItems } from "./adminSidebarItems";
 import { senderSidebarItems } from "./senderSidebarItems";
 import { receiverSidebarItems } from "./receiverSidebarItems";
 import { withAuth } from "@/utils/withAuth";
 import About from "@/pages/About";
-import Register from "@/pages/Register";
 import TrackParcel from "@/pages/TrackParcel";
+import Contact from "@/pages/Contact";
+import { lazy } from "react";
 
-// const About = lazy(() => import("@/pages/About"));
+const Register = lazy(() => import("@/pages/Register"));
+const Login = lazy(() => import("@/pages/Login"));
+
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +30,10 @@ export const router = createBrowserRouter([
       {
         Component: About,
         path: "about",
+      },
+      {
+        Component: Contact,
+        path: "contact",
       },
       {
         Component: withAuth(TrackParcel, role.admin as TRole, role.superAdmin as TRole, role.receiver as TRole, role.sender as TRole),

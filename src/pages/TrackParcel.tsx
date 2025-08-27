@@ -1,3 +1,4 @@
+import Container from "@/components/Container";
 import ParcelTrackForm from "@/components/modules/ParcelTrackForm";
 import { HistoryDataTable } from "@/components/ui/history-data-table";
 import useColumnsTracking from "@/hooks/useColumnsTracking";
@@ -14,12 +15,14 @@ const TrackParcel = () => {
         return "Loading..."
     }
     return (
-        <>
-            <ParcelTrackForm></ParcelTrackForm>
-            {parcelStatus &&
-                <HistoryDataTable columns={columns} data={parcelStatus!} />
-            }
-        </>
+        <Container>
+            <div className="mt-20">
+                <ParcelTrackForm></ParcelTrackForm>
+                {parcelStatus &&
+                    <HistoryDataTable columns={columns} data={parcelStatus!} />
+                }
+            </div>
+        </Container>
     );
 };
 

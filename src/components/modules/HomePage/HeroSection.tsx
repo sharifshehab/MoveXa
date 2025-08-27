@@ -13,7 +13,7 @@ const HeroSection = () => {
                             quality vectors with orthogonal.</p>
                     </div>
                     <div className="space-x-6">
-                        <Button variant={"primary"} className="px-8 py-6">Explore Services</Button>
+                        <Button variant={"primary"} className="px-8 py-6 dark:bg-secondary">Explore Services</Button>
                         <Button variant={"secondary"} className="px-8 py-6">Contact Us</Button>
                     </div>
                 </Container>

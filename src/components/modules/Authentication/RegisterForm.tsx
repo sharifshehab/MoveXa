@@ -4,13 +4,12 @@ import { Input } from "@/components/ui/input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-// import Password from "@/components/ui/Password";           // TO DO
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useRegisterUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { IUser } from "@/types";
 import { Link, useNavigate } from "react-router";
-import Logo from "@/components/layout/Navbar/logo";
+import Logo from "@/assets/icons/Logo";
 
 const RegisterForm = () => {
     const Role = ["Sender", "Receiver"]
@@ -36,10 +35,7 @@ const RegisterForm = () => {
             role: "Sender",
         },
     })
-    /* 
-    
-            : z.boolean(),
-    */
+
     const onSubmit: SubmitHandler<IUser> = async (data: z.infer<typeof registrationFormSchema>) => {
         try {
             const res = await registerUser(data).unwrap();
@@ -57,10 +53,14 @@ const RegisterForm = () => {
     }
     return (
         <div className="grid place-content-center place-items-center sm:h-screen py-16">
-            <Link to={"/"}><Logo></Logo></Link>
-            <Form {...form}>
+            <>
+                <Link to={"/"} className="flex-center flex-col text-2xl text-secondary font-semibold mb-6">
+                    <Logo />
+                    MoveXa
+                </Link>
+            </>            <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
-                    <h2 className="text-primary text-2xl mb-10 text-center">Sign Up</h2>
+                    <h2 className="text-primary text-3xl mb-10 text-center dark:text-white">Sign Up</h2>
                     <div className="flex flex-col md:flex-row justify-between gap-14">
                         <div className="flex-1">
                             <FormField
@@ -68,9 +68,9 @@ const RegisterForm = () => {
                                 name="name"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Name:</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Name:</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Write your name" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary" />
+                                            <Input placeholder="Write your name" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -83,9 +83,9 @@ const RegisterForm = () => {
                                 name="email"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Email:</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Email:</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Write your email address" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary" />
+                                            <Input placeholder="Write your email address" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -100,10 +100,10 @@ const RegisterForm = () => {
                                 name="role"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Role:</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Role:</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                                <SelectTrigger className="w-full">
+                                                <SelectTrigger className="w-full dark:text-white dark:placeholder:text-white">
                                                     <SelectValue placeholder="Select a user role" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -122,10 +122,9 @@ const RegisterForm = () => {
                                 name="password"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-yantramanav text-primary text-base p-1">Password:</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Password:</FormLabel>
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                            <Input placeholder="Write a password" {...field} />
-                                            {/* <Password {...field}></Password> */}
+                                            <Input placeholder="Write a password" className="dark:text-white dark:placeholder:text-white" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -133,10 +132,10 @@ const RegisterForm = () => {
                             />
                         </div>{/* password */}
                     </div>{/* 2nd row */}
-                    <Button type="submit">Sign Up</Button>
+                    <Button type="submit" variant={"primary"} className="p-5">Sign Up</Button>
                 </form>
             </Form>
-            <h3 className="text-lg text-secondary mt-6">Already a user? <span className="underline underline-offset-4 hover:opacity-70 hover:text-primary"><Link to={"/login"}>Login</Link></span></h3>
+            <h3 className="text-lg text-secondary mt-6">Already a user? <span className="underline underline-offset-4 hover:opacity-70"><Link to={"/login"}>Login</Link></span></h3>
 
         </div>
     );

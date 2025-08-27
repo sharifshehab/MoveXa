@@ -40,10 +40,10 @@ export default function UserMenu({ user }: { user: IUser }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="cursor-pointer">
-        <Button variant="ghost" className="h-auto  p-0 hover:bg-transparent">
+        <Button className="h-auto p-0 hover:bg-transparent">
           <Avatar>
             <AvatarImage src="./avatar.jpg" alt="Profile image" />
-            <AvatarFallback className="bg-card text-primary text-base">{ name.charAt(0).toUpperCase()}</AvatarFallback>
+            <AvatarFallback className="bg-card text-secondary dark:text-white text-base">{name.charAt(0).toUpperCase()}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
@@ -62,12 +62,13 @@ export default function UserMenu({ user }: { user: IUser }) {
         <DropdownMenuGroup>
 
           <DropdownMenuItem>
-            <Link to={role.toLowerCase()}>Dashboard</Link>
+            
+            {role === "Super_Admin" ? <Link to="/admin">Dashboard</Link> : <Link to={role.toLowerCase()}>Dashboard</Link>}
           </DropdownMenuItem>
 
         </DropdownMenuGroup>
 
-        <DropdownMenuSeparator/>
+        <DropdownMenuSeparator />
 
         <DropdownMenuItem>
           <LogOutIcon size={16} className="opacity-60" aria-hidden="true" />

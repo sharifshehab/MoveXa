@@ -1,6 +1,4 @@
-import Logo from "@/components/layout/Navbar/logo"
 import UserMenu from "@/components/layout/Navbar/user-menu"
-import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -13,30 +11,27 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { ModeToggle } from "../ModeToggler"
-import { NavLink } from "react-router"
+import { Link, NavLink } from "react-router"
 import { useGetUserQuery } from "@/redux/features/auth/authApi"
 import { AlignJustify } from "lucide-react"
+import { role } from "@/constants/role"
+import Logo from "@/assets/icons/Logo"
+import Container from "@/components/Container"
 
 // Navigation links array to be used in both desktop and mobile menus
-// const navigationLinks = [
-//   { href: "/", label: "Home", role: "PUBLIC" },
-//   { href: "/about", label: "About", role: "PUBLIC" },
-//   { href: "/admin", label: "Dashboard", role: role.admin },
-//   { href: "/admin", label: "Dashboard", role: role.superAdmin },
-//   { href: "/user", label: "Dashboard", role: role.user },
-// ];
-
 const navigationLinks = [
-  { href: "#", label: "Home" },
-  { href: "#", label: "Features" },
-  { href: "#", label: "Pricing" },
-]
+  { href: "/", label: "Home", role: "PUBLIC" },
+  { href: "/about", label: "About", role: "PUBLIC" },
+  { href: "/contact", label: "Contact", role: "PUBLIC" },
+  { href: "/track-parcel", label: "Track Parcel", role: role.superAdmin },
+];
 
 export default function Component() {
   const { data: userData, isLoading } = useGetUserQuery(undefined);
 
   return (
     <header className="border-b px-4 bg-primary md:px-6">
+      <Container>
       <div className="flex h-16 items-center justify-between gap-4">
 
         {/* Left side */}
@@ -62,9 +57,12 @@ export default function Component() {
             </PopoverContent>
           </Popover>
           {/* Logo */}
-          <a href="#">
-            <Logo />
-          </a>
+          <>
+            <Link to={"/"} className="flex-center justify-center text-2xl text-white gap-2 font-semibold">
+              <Logo size={10} />
+              MoveXa
+            </Link>
+          </>
         </div>
 
         {/* Center: Main nav */}
@@ -73,12 +71,15 @@ export default function Component() {
             <NavigationMenuList className="gap-2">
               {navigationLinks.map((link, index) => (
                 <NavigationMenuItem key={index}>
-                  <NavigationMenuLink
-                    href={link.href}
-                    className="text-card hover:text-primary py-1.5 font-medium"
-                  >
-                    {link.label}
+
+                  <NavigationMenuLink>
+                    <Link to={link.href} className="text-card">{link.label} </Link>
+                    {/*       
+                      {link.role === "PUBLIC" && (<Link to={link.href}>{link.label}</Link>)}         
+                      {link.role === data?.data?.role && (<Link to={link.href}>{link.label}</Link>)}  
+                    */}
                   </NavigationMenuLink>
+
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
@@ -89,7 +90,7 @@ export default function Component() {
         <div className="flex items-center gap-4">
           {isLoading ? ("Loading..") :
             (!userData?.email ?
-              <NavLink to={'/login'}><Button className="cursor-pointer">Login</Button></NavLink> :
+              <NavLink to={'/login'} className="cursor-pointer text-card">Login</NavLink> :
               // User menu
               < UserMenu user={userData} />)
           }
@@ -98,7 +99,8 @@ export default function Component() {
 
         </div>
 
-      </div>
+        </div>
+      </Container>
     </header>
   )
 }
