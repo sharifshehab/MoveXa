@@ -9,8 +9,7 @@ const HeroSection = () => {
                 <Container>
                     <div className="text-white max-w-2xl space-y-2 mb-6">
                         <h1 className="font-yantramanav font-black text-3xl md:text-7xl leading-24">FAST AND RELIABLE MOVERS</h1>
-                        <p>Professionally strategize stand-alone functionalities and cooperative total linkage. Objectively predominate vi
-                            quality vectors with orthogonal.</p>
+                        <p>Seamlessly deliver secure and efficient parcel solutions. Professionally enhance customer trust with innovative logistics systems and reliable end-to-end service.</p>
                     </div>
                     <div className="space-x-6">
                         <Button variant={"primary"} className="px-8 py-6 dark:bg-secondary">Explore Services</Button>

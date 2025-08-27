@@ -7,7 +7,7 @@ interface ISingleStats {
 }
 
 
-const SingleStats = ({ statsName, total, byStatus }: ISingleStats ) => {
+const SingleStats = ({ statsName, total, byStatus }: ISingleStats) => {
     return (
         <article className="flex flex-col gap-8 rounded-lg bg-secondary p-6">
 

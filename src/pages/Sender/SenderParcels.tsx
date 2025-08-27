@@ -1,11 +1,17 @@
 import { DataTable } from "@/components/ui/data-table";
+import { Skeleton } from "@/components/ui/skeleton";
 import useColumnsParcel from "@/hooks/useColumnsParcel";
 import { useGetUserQuery } from "@/redux/features/auth/authApi";
 import { useSenderParcelsQuery } from "@/redux/features/sender/senderApi";
-import { useState } from "react";
+import { TabTitle } from "@/utils/DynamicTitle";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 
 const SenderParcels = () => {
+    useEffect(() => {
+        TabTitle('MoveXa | All Parcels');
+    }, []);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [limit] = useState(10);
     const [searchParams] = useSearchParams();
@@ -23,8 +29,16 @@ const SenderParcels = () => {
     const columns = useColumnsParcel();
 
     if (isLoading || !parcels) {
-        return "Loading..."
+        return (
+            <div className="container mx-auto">
+                <div className="mt-10">
+                    {parcels?.map(skl => (<Skeleton key={skl._id} className="h-10 w--3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>))}
+                </div>
+            </div>
+        );
     }
+
+
 
     return (
         <div className="container mx-auto py-10">

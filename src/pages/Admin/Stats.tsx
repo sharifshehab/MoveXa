@@ -1,6 +1,9 @@
 import Container from "@/components/Container";
 import SingleStats from "@/components/modules/Admin/SingleStats";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useParcelStatsQuery, usePaymentStatsQuery, useUserStatsQuery } from "@/redux/features/stats/statsApi";
+import { TabTitle } from "@/utils/DynamicTitle";
+import { useEffect } from "react";
 import {
     ComposedChart,
     Line,
@@ -16,6 +19,9 @@ import {
 
 
 const Stats = () => {
+    useEffect(() => {
+        TabTitle('MoveXa | Stats');
+    }, []);
     const { data: parcelStats, isLoading: isParcelStatsLoading } = useParcelStatsQuery(undefined);
     const { totalParcel, parcelByStatus } = parcelStats || {}
 
@@ -26,7 +32,13 @@ const Stats = () => {
     const { totalPayment, paymentByStatus } = paymentStats || {}
 
     if (isParcelStatsLoading || isUserStatsLoading || isPaymentStatsLoading) {
-        return "Loading..."
+        return (
+            <div className="container mx-auto">
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-14 mt-14">
+                    {[1, 2, 3].map(skl => (<Skeleton key={skl} className="h-60 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>))}
+                </div>
+            </div>
+        );
     }
 
     return (

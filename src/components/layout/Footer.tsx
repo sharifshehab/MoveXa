@@ -1,7 +1,7 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Container from "../Container";
 import { Link } from "react-router";
-import Logo from "@/assets/icons/Logo";
+import logo from "../../assets/images/logo.png"
 
 export default function Footer() {
   const socialLinks = [
@@ -52,17 +52,18 @@ export default function Footer() {
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left text-white my-16">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
             {/* Logo */}
-            <div className="flex items-center gap-2 lg:justify-start">
-              <>
-                <Link to={"/"} className="flex-center flex-col justify-center text-2xl text-white gap-2 font-semibold py-2">
-                  <Logo size={20} />
+            <div className="flex items-center gap-4 lg:justify-start">
+            
+                <Link to={"/"} className="flex-center flex-col justify-center text-2xl text-white gap-1 font-semibold py-2">
+                <img src={logo} alt="" className="w-20" />
                   MoveXa
                 </Link>
-              </>
+                <p className="text-white max-w-[70%] text-sm">
+                  MoveXa delivers your parcels quickly and safely. <br />Stay connected with us for seamless shipping solutions and 24/7 support
+                </p>
+              
             </div>
-            <p className="text-white max-w-[70%] text-sm">
-              description
-            </p>
+            
             <ul className="text-white flex items-center space-x-6">
               {socialLinks.map((social, idx) => (
                 <li key={idx} className="text-white hover:text-primary font-medium">

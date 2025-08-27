@@ -18,6 +18,7 @@ import { useReceiveParcelMutation } from "@/redux/features/receiver/receiverApi"
 import { useApproveParcelMutation } from "@/redux/features/admin/adminApi"
 import PopupSelect from "@/components/ui/popup-select"
 import { useGetUserQuery } from "@/redux/features/auth/authApi"
+import PopupScroll from "@/components/ui/popup-scrollable"
 
 const useColumnsParcel = () => {
     const { data: user } = useGetUserQuery();
@@ -151,7 +152,10 @@ const useColumnsParcel = () => {
                                     <DropdownMenuItem onClick={() => handleParcelPayment(parcel._id)} disabled={parcel.payment === "PAID"} className="cursor-pointer hover:text-primary">
                                         Make Payment
                                     </DropdownMenuItem>
+                                    <PopupScroll status={parcel.statusLog}></PopupScroll>
                                 </>
+
+                            
                             }
 
                             {/* Receiver */}

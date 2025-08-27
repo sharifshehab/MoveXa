@@ -1,5 +1,8 @@
+import TitleSection from "@/components/TitleSection";
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import blog_1 from "../../../assets/images/blog-1.png";
+import blog_2 from "../../../assets/images/blog-2.png";
 
 const BlogSection = () => {
 
@@ -7,40 +10,35 @@ const BlogSection = () => {
         {
             id: "post-1",
             title:
-                "Building Modern UIs: A Deep Dive into Shadcn and React Components",
+                "Top 5 Ways to Ensure Safe and Timely Parcel Delivery",
             summary:
-                "Join us for an in-depth exploration of building modern user interfaces using shadcn/ui and React. Learn best practices and advanced techniques.",
+                "Discover practical tips to optimize your shipping process, reduce delays, and ensure your parcels reach customers safely every time.",
             label: "Web Design",
             author: "Sarah Chen",
             published: "15 Feb 2024",
             url: "https://shadcnblocks.com",
-            image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+            image: blog_1,
             tags: ["Web Design", "UI Development"],
         },
         {
             id: "post-2",
-            title: "Mastering Tailwind CSS: From Basics to Advanced Techniques",
+            title: "How Real-Time Tracking is Revolutionizing Delivery Services",
             summary:
-                "Discover how to leverage the full power of Tailwind CSS to create beautiful, responsive websites with clean and maintainable code.",
+                " Learn how live parcel tracking improves transparency, customer satisfaction, and operational efficiency in modern logistics.",
             label: "Web Design",
             author: "Michael Park",
             published: "22 Feb 2024",
             url: "https://shadcnblocks.com",
-            image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+            image: blog_2,
             tags: ["Web Design", "CSS"],
         },
     ]
     return (
         <section className="py-32">
+            <div className="mb-5 text-center">
+                <TitleSection title="Blog Posts" size="3xl"></TitleSection>
+            </div>
             <div className="container flex-center flex-col gap-16">
-                <div className="text-center">
-                    <h2 className="mx-auto mb-6 text-3xl font-semibold text-pretty md:text-4xl lg:max-w-3xl">
-                        Blog Posts
-                    </h2>
-                    <p className="mx-auto max-w-2xl text-muted-foreground md:text-lg">
-                        Discover the latest insights and tutorials about modern web devel
-                    </p>
-                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
                     {blogs.map((post) => (

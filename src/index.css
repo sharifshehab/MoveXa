@@ -149,9 +149,6 @@
   .flex-center {
     @apply flex items-center;
   }
-  a.active {
-    @apply bg-primary;
-  }
 }
 
 .single-service:hover{

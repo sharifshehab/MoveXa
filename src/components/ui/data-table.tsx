@@ -91,7 +91,7 @@ export function DataTable<TData, TValue>({
     }, []);
 
     return (
-        <div>
+        <>
             {/* Search & Filter Fields */}
             <div className="flex items-center justify-between py-4">
                 {/* Search */}
@@ -187,7 +187,7 @@ export function DataTable<TData, TValue>({
                     </Button>
                 </div>
         }
-        </div>
+        </>
 
     )
 }

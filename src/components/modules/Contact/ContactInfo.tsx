@@ -13,16 +13,7 @@ const ContactInfo = () => {
                 <h1 className="heading text-3xl md:text-[40px] leading-10 md:leading-14">Contact
                     Information</h1>
                 <p className="text-[0.9rem] mt-1 mb-8 text-white">Say something to start a live
-                    chat! Say something to start a live
-                    chat!Say something to start a live
-                    chat!Say something to start a live
-                    chat!Say something to start a live
-                    chat!Say something to start a live
-                    chat!Say something to start a live
-                    chat!Say something to start a live
-                    chat!Say something to start a live
-                    chat!Say something to start a live
-                    chat!</p>
+                    Have a question or need assistance? We’re here to help! Reach out to our team and we’ll get back to you as quickly as possible. Whether it’s a query, feedback, or partnership opportunity, your message matters to us.</p>
             </div>
 
             <div className="flex flex-col gap-[20px] text-card">

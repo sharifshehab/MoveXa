@@ -1,19 +1,21 @@
 import Container from "@/components/Container";
 import LoginForm from "@/components/modules/Authentication/LoginForm";
+import { TabTitle } from "@/utils/DynamicTitle";
+import { useEffect } from "react";
 import { NavLink } from "react-router";
 
 const Login = () => {
+        useEffect(() => {
+            TabTitle('MoveXa | Login');
+        }, []);
     return (
         <Container>
-            <div>
                 <LoginForm />
-            </div>
-            <br />
-            <NavLink to={'/register'}>Register here</NavLink>
-            <br />
-            <NavLink to={'/'}>Home</NavLink>
-
-        </Container>
+                <br />
+                <NavLink to={'/register'}>Register here</NavLink>
+                <br />
+                <NavLink to={'/'}>Home</NavLink>
+            </Container>
     );
 };
 

@@ -9,7 +9,7 @@ import { useRegisterUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { IUser } from "@/types";
 import { Link, useNavigate } from "react-router";
-import Logo from "@/assets/icons/Logo";
+import logo from "../../../assets/images/logo.png"
 
 const RegisterForm = () => {
     const Role = ["Sender", "Receiver"]
@@ -55,7 +55,7 @@ const RegisterForm = () => {
         <div className="grid place-content-center place-items-center sm:h-screen py-16">
             <>
                 <Link to={"/"} className="flex-center flex-col text-2xl text-secondary font-semibold mb-6">
-                    <Logo />
+                    <img src={logo} alt="" className="w-20" />
                     MoveXa
                 </Link>
             </>            <Form {...form}>

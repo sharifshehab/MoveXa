@@ -14,16 +14,16 @@ import { ModeToggle } from "../ModeToggler"
 import { Link, NavLink } from "react-router"
 import { useGetUserQuery } from "@/redux/features/auth/authApi"
 import { AlignJustify } from "lucide-react"
-import { role } from "@/constants/role"
 import Logo from "@/assets/icons/Logo"
 import Container from "@/components/Container"
+
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home", role: "PUBLIC" },
   { href: "/about", label: "About", role: "PUBLIC" },
   { href: "/contact", label: "Contact", role: "PUBLIC" },
-  { href: "/track-parcel", label: "Track Parcel", role: role.superAdmin },
+  { href: "/track-parcel", label: "Track Parcel", role: "PUBLIC" },
 ];
 
 export default function Component() {
@@ -70,14 +70,11 @@ export default function Component() {
           <NavigationMenu className="max-md:hidden">
             <NavigationMenuList className="gap-2">
               {navigationLinks.map((link, index) => (
+                
                 <NavigationMenuItem key={index}>
 
-                  <NavigationMenuLink>
+                  <NavigationMenuLink className="hover:bg-transparent hover:border-b-2 rounded-none">
                     <Link to={link.href} className="text-card">{link.label} </Link>
-                    {/*       
-                      {link.role === "PUBLIC" && (<Link to={link.href}>{link.label}</Link>)}         
-                      {link.role === data?.data?.role && (<Link to={link.href}>{link.label}</Link>)}  
-                    */}
                   </NavigationMenuLink>
 
                 </NavigationMenuItem>

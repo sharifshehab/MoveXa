@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
         path: "contact",
       },
       {
-        Component: withAuth(TrackParcel, role.admin as TRole, role.superAdmin as TRole, role.receiver as TRole, role.sender as TRole),
+        Component: TrackParcel,
         path: "track-parcel",
       },
     ],

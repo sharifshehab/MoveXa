@@ -16,7 +16,7 @@ export default function PopupScroll({ status }: { status: IStatusLog[] }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">View History</Button>
+        <Button variant="outline">View Status</Button>
       </DialogTrigger>
       <DialogContent className="flex flex-col gap-0 p-0 sm:max-h-[min(640px,80vh)] sm:max-w-lg [&>button:last-child]:top-3.5">
         <DialogHeader className="contents space-y-0 text-left">

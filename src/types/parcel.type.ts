@@ -21,6 +21,7 @@ export interface IParcel {
     statusLog: IStatusLog[]
     createdAt: string
     updatedAt: string
+    key?: string
 }
 
 export interface IMeta {

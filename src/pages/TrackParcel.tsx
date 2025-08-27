@@ -3,6 +3,9 @@ import ParcelTrackForm from "@/components/modules/ParcelTrackForm";
 import { HistoryDataTable } from "@/components/ui/history-data-table";
 import useColumnsTracking from "@/hooks/useColumnsTracking";
 import { useTrackParcelQuery } from "@/redux/features/sender/senderApi";
+import { TabTitle } from "@/utils/DynamicTitle";
+import { useEffect } from "react";
+
 import { useSearchParams } from "react-router";
 
 const TrackParcel = () => {
@@ -11,6 +14,10 @@ const TrackParcel = () => {
     const { data: parcelStatus, isLoading } = useTrackParcelQuery(trackingID as string, { skip: !trackingID })
 
     const columns = useColumnsTracking();
+    useEffect(() => {
+        TabTitle('MoveXa | Track Parcel');
+    }, []);
+
     if (isLoading) {
         return "Loading..."
     }
