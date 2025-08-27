@@ -72,7 +72,7 @@ const RegisterForm = () => {
                                         <FormControl>
                                             <Input placeholder="Write your name" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -87,7 +87,7 @@ const RegisterForm = () => {
                                         <FormControl>
                                             <Input placeholder="Write your email address" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -111,7 +111,7 @@ const RegisterForm = () => {
                                                 {Role.map(role => <SelectItem value={role}>{role}</SelectItem>)}
                                             </SelectContent>
                                         </Select>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -126,13 +126,13 @@ const RegisterForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write a password" className="dark:text-white dark:placeholder:text-white" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
                         </div>{/* password */}
                     </div>{/* 2nd row */}
-                    <Button type="submit" variant={"primary"} className="p-5">Sign Up</Button>
+                    <Button type="submit" variant={"primary"} className="p-5 cursor-pointer">Sign Up</Button>
                 </form>
             </Form>
             <h3 className="text-lg text-secondary mt-6">Already a user? <span className="underline underline-offset-4 hover:opacity-70"><Link to={"/login"}>Login</Link></span></h3>

@@ -78,7 +78,7 @@ const ParcelForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write receiver email" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -93,7 +93,7 @@ const ParcelForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write receiver address" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -110,7 +110,7 @@ const ParcelForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write sender address" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -125,7 +125,7 @@ const ParcelForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input type="number" min={1} placeholder="Write receiver address" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -149,7 +149,7 @@ const ParcelForm = () => {
                                                 {ParcelType.map((type, idx) => <SelectItem key={idx} value={type}>{type}</SelectItem>)}
                                             </SelectContent>
                                         </Select>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -174,13 +174,13 @@ const ParcelForm = () => {
                                                 <SelectItem value="false">No</SelectItem>
                                             </SelectContent>
                                         </Select>
-                                        <FormMessage />
+                                        <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
                         </div>{/* role */}
                     </div>{/* 2nd row */}
-                    <Button type="submit" className="rounded-none dark:bg-secondary">Create Parcel</Button>
+                    <Button type="submit" className="rounded-none dark:bg-secondary cursor-pointer">Create Parcel</Button>
                 </form>
             </Form>
         </>

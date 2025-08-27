@@ -49,7 +49,7 @@ const ContactForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write your first name" {...field} className="dark:text-white dark:placeholder:text-white"/>
                                         </FormControl>
-                                        <FormMessage />
+                                         <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -64,7 +64,7 @@ const ContactForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write your last name" {...field} className="dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
-                                        <FormMessage />
+                                         <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -81,7 +81,7 @@ const ContactForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write your email address" {...field} className="dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
-                                        <FormMessage />
+                                         <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -96,7 +96,7 @@ const ContactForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Input placeholder="Write your query" {...field} className="dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
-                                        <FormMessage />
+                                         <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -113,13 +113,13 @@ const ContactForm = () => {
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
                                             <Textarea placeholder="Write your message" className="h-40 pt-2 resize-none dark:text-white dark:placeholder:text-white" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                         <FormMessage className="dark:text-white" />
                                     </FormItem>
                                 )}
                             />
                         </div>{/* email */}
                     </div>
-                <Button type="submit" variant={"primary"} className="px-8 py-6">Send</Button>
+                <Button type="submit" variant={"primary"} className="px-8 py-6 cursor-pointer">Send</Button>
                 </form>
             </Form>
     );
