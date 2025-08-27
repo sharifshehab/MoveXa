@@ -11,7 +11,7 @@ const ReceiverParcels = () => {
     useEffect(() => {
         TabTitle('MoveXa | All Parcels');
     }, []);
-    
+
     const [currentPage, setCurrentPage] = useState(1);
     const [limit] = useState(10);
     const [searchParams] = useSearchParams();
@@ -32,7 +32,11 @@ const ReceiverParcels = () => {
         return (
             <div className="container mx-auto">
                 <div className="mt-10">
-                    {parcels?.map(skl => (<Skeleton key={skl._id} className="h-10 w--3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>))}
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
                 </div>
             </div>
         );

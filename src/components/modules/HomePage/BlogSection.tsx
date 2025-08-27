@@ -73,7 +73,7 @@ const BlogSection = () => {
                                             target="_blank"
                                             className="inline-flex items-center font-semibold hover:underline md:text-base"
                                         >
-                                            <span className="text-primary">Read more</span>
+                                            <span className="text-primary dark:text-white">Read more</span>
                                             <ArrowRight className="text-primary ml-2 size-4 transition-transform" />
                                         </a>
                                     </div>

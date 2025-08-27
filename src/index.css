@@ -149,6 +149,12 @@
   .flex-center {
     @apply flex items-center;
   }
+  a.active {
+    @apply bg-primary;
+  }
+  .active-menu {
+    @apply text-white border-b-2 border-b-white;
+  }
 }
 
 .single-service:hover{

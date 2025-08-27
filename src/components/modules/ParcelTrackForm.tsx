@@ -54,7 +54,7 @@ const ParcelTrackForm = () => {
                             />
                         </div>
                     </div>
-                    <Button type="submit" className="rounded-none dark:bg-white dark:text-secondary">Track Parcel</Button>
+                    <Button type="submit" className="rounded-none dark:bg-white dark:text-secondary cursor-pointer">Track Parcel</Button>
                 </form>
             </Form>
         </div>

@@ -17,7 +17,11 @@ const AllUsers = () => {
         return (
             <div className="container mx-auto">
                 <div className="mt-10">
-                    {AllUsers?.map(skl => (<Skeleton key={skl._id} className="h-10 w--3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>))}
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
+                    <Skeleton className="h-10 w-3/4 mx-auto rounded-none bg-gray-200 mb-1.5"></Skeleton>
                 </div>
             </div>
         );
