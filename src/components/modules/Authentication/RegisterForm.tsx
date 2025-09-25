@@ -60,7 +60,7 @@ const RegisterForm = () => {
                 </Link>
             </>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-secondary p-14">
                     <h2 className="text-primary text-3xl mb-10 text-center dark:text-white">Sign Up</h2>
                     <div className="flex flex-col md:flex-row justify-between gap-14">
                         <div className="flex-1">
@@ -71,9 +71,9 @@ const RegisterForm = () => {
                                     <FormItem>
                                         <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Name:</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Write your name" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
+                                            <Input placeholder="Write your name" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-white dark:placeholder:text-white" />
                                         </FormControl>
-                                        <FormMessage className="dark:text-white" />
+                                        <FormMessage className="text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -86,9 +86,9 @@ const RegisterForm = () => {
                                     <FormItem>
                                         <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Email:</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Write your email address" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
+                                            <Input placeholder="Write your email address" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-white dark:placeholder:text-white" />
                                         </FormControl>
-                                        <FormMessage className="dark:text-white" />
+                                        <FormMessage className="text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -104,7 +104,7 @@ const RegisterForm = () => {
                                         <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Role:</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                                <SelectTrigger className="w-full dark:text-white dark:placeholder:text-white">
+                                                <SelectTrigger className="w-full text-white dark:placeholder:text-white">
                                                     <SelectValue placeholder="Select a user role" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -112,7 +112,7 @@ const RegisterForm = () => {
                                                 {Role.map(role => <SelectItem value={role}>{role}</SelectItem>)}
                                             </SelectContent>
                                         </Select>
-                                        <FormMessage className="dark:text-white" />
+                                        <FormMessage className="text-white" />
                                     </FormItem>
                                 )}
                             />
@@ -125,9 +125,9 @@ const RegisterForm = () => {
                                     <FormItem>
                                         <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Password:</FormLabel>
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                            <Input placeholder="Write a password" className="dark:text-white dark:placeholder:text-white" {...field} />
+                                            <Input type="password" placeholder="Write a password" className="text-white dark:placeholder:text-white" {...field} />
                                         </FormControl>
-                                        <FormMessage className="dark:text-white" />
+                                        <FormMessage className="text-white" />
                                     </FormItem>
                                 )}
                             />

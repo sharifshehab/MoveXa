@@ -4,7 +4,7 @@ import Container from "@/components/Container";
 const HeroSection = () => {
     return (
         <div className="relative w-full h-full">
-            <img src={bannerImage} alt="" />
+            <img src={bannerImage} alt="" className="w-full"/>
             <div className="absolute inset-0 flex items-center">
                 <Container>
                     <div className="text-white max-w-2xl space-y-2 mb-6">

@@ -124,7 +124,7 @@ const LoginForm = () => {
                 </Link>
             </>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-secondary p-14">
                     <h2 className="text-primary dark:text-white text-3xl mb-10 text-center">Login</h2>
                     <div className="flex flex-col md:flex-row justify-between gap-14">
                         <div className="flex-1">
@@ -135,7 +135,7 @@ const LoginForm = () => {
                                     <FormItem>
                                         <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Email</FormLabel>
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                            <Input placeholder="Write your email address" className="dark:text-white dark:placeholder:text-white" {...field} />
+                                            <Input placeholder="Write your email address" className="text-white dark:placeholder:text-white" {...field} />
                                         </FormControl>
                                         <FormMessage className="dark:text-white" />
                                     </FormItem>
@@ -150,7 +150,7 @@ const LoginForm = () => {
                                     <FormItem>
                                         <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Password</FormLabel>
                                         <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                            <Input type="password" placeholder="Write your password" className="dark:text-white dark:placeholder:text-white"{...field} />
+                                            <Input type="password" placeholder="Write your password" className="text-white dark:placeholder:text-white"{...field} />
                                         </FormControl>
                                         <FormMessage className="dark:text-white" />
                                     </FormItem>
@@ -165,7 +165,7 @@ const LoginForm = () => {
 
             {/* Preset credentials */}
             <div className="my-10 space-y-5">
-                <h3 className="text-white text-2xl underline underline-offset-4 decoration-yellow-400 text-center">Demo Credentials</h3>
+                <h3 className="text-primary dark:text-white text-2xl underline underline-offset-4 decoration-secondary text-center">Demo Credentials</h3>
                 <div className="flex items-center flex-col md:flex-row justify-center gap-2">
                     {/* sender user */}
                     <Button variant={"primary"} className="p-5 cursor-pointer dark:bg-secondary" type="submit" onClick={senderLogin}>Login As Sender</Button>
