@@ -10,13 +10,13 @@ const AboutSection = () => {
         <section className="spacing">
             <div className="flex-center flex-col lg:flex-row justify-between">
                 <div className="flex-1 relative">
-                    <img src={aboutImage} alt="" className="w-[580px] border-l-4 border-t-4 border-white"/>
-                    <img src={aboutImage2} alt="" className="hidden lg:block shadow-xl absolute -bottom-12 right-20 border-r-4 border-b-4 border-white"/>
+                    <img src={aboutImage} alt="" className="w-[580px] border-l-4 border-t-4 border-white" data-aos="zoom-in"/>
+                    <img src={aboutImage2} alt="" className="hidden lg:block shadow-xl absolute -bottom-12 right-20 border-r-4 border-b-4 border-white" data-aos="zoom-in-up" data-aos-duration="1200" />
                 </div>
                 <div className="flex-1">
                     <TitleSection title="About" size="xl"></TitleSection>
                     <>
-                        <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14">MoveXa – Fast & Reliable Parcel Delivery</h2>
+                        <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">MoveXa – Fast & Reliable Parcel Delivery</h2>
                         <p className="py-5">MoveXa is your trusted parcel delivery solution, designed to make sending and receiving parcels simple, fast, and reliable. From instant booking to real-time tracking, we provide a transparent delivery process that ensures your packages arrive on time, every time. Whether for personal needs or business logistics, MoveXa keeps you connected with a secure and hassle-free delivery experience.</p>
                     </>
                     <div className="flex-center justify-between border-b dark:border-b-white pb-8 mb-8">

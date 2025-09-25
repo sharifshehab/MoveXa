@@ -7,6 +7,16 @@ import { ThemeProvider } from "./providers/theme.provider.tsx";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./redux/store.ts";
 import { Toaster } from "./components/ui/sonner.tsx";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+  duration: 800,
+  easing: "ease-in-out",
+  once: false,
+  mirror: false,
+  offset: 120,
+})
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
