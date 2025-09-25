@@ -48,6 +48,73 @@ const LoginForm = () => {
             toast.error(error?.data?.message)
         }
     }
+
+    // Handle Preset Supper Admin Login
+    const supperAdminLogin = async () => {
+
+        const presetCredentials = {
+            email: "super@gmail.com",
+            password: "12345678",
+        }
+
+        try {
+            await loginUser(presetCredentials).unwrap();
+            form.reset();
+            navigate('/admin');
+        } catch (error) {
+            toast.error(`Login error: error?.data?.message`);
+        }
+    }
+
+    // Handle Preset Admin Login
+    const adminLogin = async () => {
+
+        const presetCredentials = {
+            email: "admin@gmail.com",
+            password: "admin696",
+        }
+
+        try {
+            await loginUser(presetCredentials).unwrap();
+            form.reset();
+            navigate('/admin');
+        } catch (error) {
+            toast.error(`Login error: error?.data?.message`);
+        }
+    }
+    const senderLogin = async () => {
+
+        const presetCredentials = {
+            email: "aryan@gmail.com",
+            password: "aryan696",
+        }
+
+        try {
+            await loginUser(presetCredentials).unwrap();
+            form.reset();
+            navigate('/sender');
+        } catch (error) {
+            toast.error(`Login error: error?.data?.message`);
+        }
+    }
+    const receiverLogin = async () => {
+
+        const presetCredentials = {
+            email: "rohan@gmail.com",
+            password: "rohan696",
+        }
+
+        try {
+            await loginUser(presetCredentials).unwrap();
+            form.reset();
+            navigate('/receiver');
+        } catch (error) {
+            toast.error(`Login error: error?.data?.message`);
+        }
+    }
+
+    // Handle Preset User Login
+
     return (
         <div className="grid place-content-center place-items-center sm:h-screen py-16">
             <>
@@ -95,6 +162,30 @@ const LoginForm = () => {
                 </form>
             </Form>
             <h3 className="text-lg text-secondary mt-6">Don't have an account? <span className="underline underline-offset-4 hover:opacity-70"><Link to={"/register"}>Sign Up</Link></span></h3>
+
+            {/* Preset credentials */}
+            <div className="my-10 space-y-5">
+                <h3 className="text-white text-2xl underline underline-offset-4 decoration-yellow-400 text-center">Demo Credentials</h3>
+                <div className="flex items-center flex-col md:flex-row justify-center gap-2">
+                    {/* sender user */}
+                    <Button variant={"primary"} className="p-5 cursor-pointer dark:bg-secondary" type="submit" onClick={senderLogin}>Login As Sender</Button>
+                    {/* Separator */}
+                    <span className="w-px h-10 bg-white mx-2"></span>
+
+                    {/* Supper Admin */}
+                    <Button variant={"primary"} className="p-5 cursor-pointer dark:bg-secondary" type="submit" onClick={supperAdminLogin}>Login As Supper Admin</Button>
+                    {/* Separator */}
+                    <span className="w-px h-10 bg-white mx-2"></span>
+
+                    {/* Admin */}
+                    <Button variant={"primary"} className="p-5 cursor-pointer dark:bg-secondary" type="submit" onClick={adminLogin}>Login As Admin</Button>
+                    {/* Separator */}
+                    <span className="w-px h-10 bg-white mx-2"></span>
+
+                    {/* receiver user */}
+                    <Button variant={"primary"} className="p-5 cursor-pointer dark:bg-secondary" type="submit" onClick={receiverLogin}>Login As Receiver</Button>
+                </div>
+            </div>
         </div>
     );
 };

@@ -9,9 +9,9 @@ const Register = () => {
         TabTitle('MoveXa | Register');
     }, []);
     return (
-            <Container>
-                <RegisterForm />
-            </Container>
+        <Container>
+            <RegisterForm />
+        </Container>
     );
 };
 export default Register;

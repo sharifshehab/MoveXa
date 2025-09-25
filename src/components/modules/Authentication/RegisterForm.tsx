@@ -58,7 +58,8 @@ const RegisterForm = () => {
                     <img src={logo} alt="" className="w-20" />
                     MoveXa
                 </Link>
-            </>            <Form {...form}>
+            </>
+            <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
                     <h2 className="text-primary text-3xl mb-10 text-center dark:text-white">Sign Up</h2>
                     <div className="flex flex-col md:flex-row justify-between gap-14">
