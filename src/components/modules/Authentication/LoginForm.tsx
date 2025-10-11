@@ -49,6 +49,21 @@ const LoginForm = () => {
         }
     }
 
+
+    /*  Other user:
+        --------------
+
+        Sender:
+        -------
+        email: sv@gmail.com
+        password: Shuvo696
+
+        Receiver:
+        ---------
+        email: sharif@gmail.com
+        password: sharif696
+    */
+
     // Handle Preset Supper Admin Login
     const supperAdminLogin = async () => {
 
@@ -82,6 +97,8 @@ const LoginForm = () => {
             toast.error(`Login error: error?.data?.message`);
         }
     }
+
+    // Handle Preset sender Login
     const senderLogin = async () => {
 
         const presetCredentials = {
@@ -97,6 +114,8 @@ const LoginForm = () => {
             toast.error(`Login error: error?.data?.message`);
         }
     }
+
+    // Handle receiver Login
     const receiverLogin = async () => {
 
         const presetCredentials = {
