@@ -171,7 +171,7 @@
 }
 
 .prev-cut {
-    clip-path: polygon(100% 100%, 100% 100%, 100% 0%, 35% 20%, -8% 116%, 0% 100%);
+    clip-path: polygon(100% 100%, 100% 100%, 100% 0%, 80% 21%, -17% 116%, 0% 100%);
 }
 
 
@@ -179,3 +179,15 @@
   background-image: url(./assets//images/breadcrumb.png);
 }
   
+.senderImg {
+  background-image: url("./assets/images/sender.jpg");
+  background-size:cover;          /* Image covers entire box */
+  background-position:right center;     /* Image remains centered */
+  background-repeat: no-repeat;    /* Prevents tiling */
+}
+.receiverImg {
+  background-image: url("./assets/images/receiver.jpg");
+  background-size:cover;          /* Image covers entire box */
+  background-position:left ;     /* Image remains centered */
+  background-repeat: no-repeat;    /* Prevents tiling */
+}
