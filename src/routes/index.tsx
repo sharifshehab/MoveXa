@@ -13,6 +13,7 @@ import About from "@/pages/About";
 import TrackParcel from "@/pages/TrackParcel";
 import Contact from "@/pages/Contact";
 import { lazy } from "react";
+import Services from "@/pages/Services";
 
 const Register = lazy(() => import("@/pages/Register"));
 const Login = lazy(() => import("@/pages/Login"));
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         Component: About,
         path: "about",
+      },
+      {
+        Component: Services,
+        path: "services",
       },
       {
         Component: Contact,

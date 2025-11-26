@@ -166,6 +166,15 @@
   }
 } 
 
+.next-cut {
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 65% 80%, 108% -16%, 100% 0%);
+}
+
+.prev-cut {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 0%, 35% 20%, -8% 116%, 0% 100%);
+}
+
+
 .breadcrumbImg {
   background-image: url(./assets//images/breadcrumb.png);
 }

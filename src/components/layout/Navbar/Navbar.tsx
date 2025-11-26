@@ -23,6 +23,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 const navigationLinks = [
   { href: "/", label: "Home", role: "PUBLIC" },
   { href: "/about", label: "About", role: "PUBLIC" },
+  { href: "/services", label: "Services", role: "PUBLIC" },
   { href: "/track-parcel", label: "Track Parcel", role: "PUBLIC" },
   { href: "/contact", label: "Contact", role: "PUBLIC" },
 ];
