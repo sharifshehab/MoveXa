@@ -40,28 +40,34 @@ const Services = () => {
             <BreadCrumb heading="Services" />
             <Container>
 
-                <TitleSection title="Service" size="xl"></TitleSection>
-                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">MoveXa – Fast & Reliable Parcel Delivery</h2>
+                <TitleSection title="Complete Delivery Services" size="xl"></TitleSection>
+                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">From You to Them — We Handle The Rest</h2>
 
                 <div className="space-y-8">
                     <div className="senderImg">
                         <div className="bg-primary ps-16 py-28 next-cut">
                             <h3 className="heading text-white text-4xl">Sender</h3>
-                            <p className="text-white">Reliable service building trust with every delivery.</p>
+                            <p className="text-white w-[35%]">Sending a parcel has never been easier. With our streamlined sending process, you can schedule a pickup, track your shipment in real-time, and stay updated until it safely reaches your receiver. </p>
                         </div>
                     </div> {/* sender */}
 
                     <div className="receiverImg">
-                        <div className="bg-secondary pe-16 py-28 prev-cut">
-                            <h3 className="heading text-white text-4xl text-right">Receiver</h3>
-                            <p className="text-white text-right">Reliable service building trust with every delivery.</p>
+                        <div className="bg-secondary pe-16 py-28 prev-cut flex justify-end text-right">
+                            <div className="w-[35%]">
+                                <h3 className="heading text-white text-4xl mb-4">Receiver</h3>
+                                <p className="text-white">
+                                    We ensure that every parcel reaches its destination smoothly. Receivers can check delivery status,
+                                    verify parcel details, and communicate with our support team when needed.
+                                </p>
+                            </div>
                         </div>
+
                     </div> {/* receiver */}
                 </div> {/* users wrap */}
 
 
-                <TitleSection title="Keep in touch" size="xl"></TitleSection>
-                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">MoveXa – Fast & Reliable Parcel Delivery</h2>
+                <TitleSection title="Every Step of the Way" size="xl"></TitleSection>
+                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">Track Your Parcel Instantly.</h2>
 
                 <div className="space-y-8">
                     <Stepper />
@@ -69,8 +75,8 @@ const Services = () => {
                 </div> {/* track wrap */}
 
 
-                <TitleSection title="calculator" size="xl"></TitleSection>
-                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">MoveXa – Fast & Reliable Parcel Delivery</h2>
+                <TitleSection title="Parcel Fee Calculator" size="xl"></TitleSection>
+                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">Estimate Before You Send.</h2>
 
                 <div className="space-y-8">
                     <Form {...form}>

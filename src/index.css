@@ -167,7 +167,7 @@
 } 
 
 .next-cut {
-  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 65% 80%, 108% -16%, 100% 0%);
+  clip-path: polygon(0% 100%, 0% 100%, 0% 0%, 20% 21%, 117% 116%, 100% 100%);
 }
 
 .prev-cut {
@@ -182,7 +182,7 @@
 .senderImg {
   background-image: url("./assets/images/sender.jpg");
   background-size:cover;          /* Image covers entire box */
-  background-position:right center;     /* Image remains centered */
+  background-position:right;     /* Image remains centered */
   background-repeat: no-repeat;    /* Prevents tiling */
 }
 .receiverImg {
