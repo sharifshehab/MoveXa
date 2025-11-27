@@ -40,114 +40,116 @@ const Services = () => {
             <BreadCrumb heading="Services" />
             <Container>
 
-                <TitleSection title="Complete Delivery Services" size="xl"></TitleSection>
-                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">From You to Them — We Handle The Rest</h2>
+                <div className="text-center mt-20">
+                    <TitleSection title="Complete Delivery Services" size="xl"></TitleSection>
+                    <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">From You to Them — We Handle The Rest</h2>
 
-                <div className="space-y-8">
-                    <div className="senderImg">
-                        <div className="bg-primary ps-16 py-28 next-cut">
-                            <h3 className="heading text-white text-4xl">Sender</h3>
-                            <p className="text-white w-[35%]">Sending a parcel has never been easier. With our streamlined sending process, you can schedule a pickup, track your shipment in real-time, and stay updated until it safely reaches your receiver. </p>
-                        </div>
-                    </div> {/* sender */}
-
-                    <div className="receiverImg">
-                        <div className="bg-secondary pe-16 py-28 prev-cut flex justify-end text-right">
-                            <div className="w-[35%]">
-                                <h3 className="heading text-white text-4xl mb-4">Receiver</h3>
-                                <p className="text-white">
-                                    We ensure that every parcel reaches its destination smoothly. Receivers can check delivery status,
-                                    verify parcel details, and communicate with our support team when needed.
-                                </p>
+                    <div className="space-y-8 mt-5">
+                        <div className="senderImg">
+                            <div className="bg-primary dark:border dark:border-secondary ps-16 py-28 next-cut">
+                                <h3 className="heading text-white text-4xl">Sender</h3>
+                                <p className="text-white w-[35%]">Sending a parcel has never been easier. With our streamlined sending process, you can schedule a pickup, track your shipment in real-time, and stay updated until it safely reaches your receiver. </p>
                             </div>
-                        </div>
+                        </div> {/* sender */}
 
-                    </div> {/* receiver */}
-                </div> {/* users wrap */}
+                        <div className="receiverImg">
+                            <div className="bg-secondary pe-16 py-28 prev-cut flex justify-end text-right">
+                                <div className="w-[35%]">
+                                    <h3 className="heading text-white text-4xl mb-4">Receiver</h3>
+                                    <p className="text-white">
+                                        We ensure that every parcel reaches its destination smoothly. Receivers can check delivery status,
+                                        verify parcel details, and communicate with our support team when needed.
+                                    </p>
+                                </div>
+                            </div>
 
+                        </div> {/* receiver */}
+                    </div>
+                </div>{/* users wrap */}
 
-                <TitleSection title="Every Step of the Way" size="xl"></TitleSection>
-                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">Track Your Parcel Instantly.</h2>
+                <div className="text-center mt-20">
+                    <TitleSection title="Every Step of the Way" size="xl"></TitleSection>
+                    <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">Track Your Parcel Instantly.</h2>
 
-                <div className="space-y-8">
-                    <Stepper />
+                    <div className="space-y-8">
+                        <Stepper />
+                    </div>
+                </div>{/* track wrap */}
 
-                </div> {/* track wrap */}
+                <div className="text-center mt-20">
+                    <TitleSection title="Parcel Fee Calculator" size="xl"></TitleSection>
+                    <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">Estimate Before You Send.</h2>
 
+                    <div className="space-y-8 mt-5 mb-28">
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-primary dark:bg-secondary py-20 px-10">
 
-                <TitleSection title="Parcel Fee Calculator" size="xl"></TitleSection>
-                <h2 className="heading text-3xl md:text-[40px] leading-10 md:leading-14" data-aos="zoom-in">Estimate Before You Send.</h2>
+                                <div className="flex flex-col md:flex-row justify-between gap-4">
+                                    <div className="flex-1">
+                                        <FormField
+                                            control={form.control}
+                                            name="insideDhaka"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel className="font-yantramanav text-white text-base p-1">Inside Dhaka</FormLabel>
+                                                    <Select
+                                                        onValueChange={(val) => field.onChange(val === "true")}
+                                                        defaultValue={field.value ? "true" : "false"}>
+                                                        <FormControl className="border-0 border-b border-b-secondary rounded-none shadow-none p-0 ps-1 text-white">
+                                                            <SelectTrigger className="w-full">
+                                                                <SelectValue placeholder="Select a user role" />
+                                                            </SelectTrigger>
+                                                        </FormControl>
+                                                        <SelectContent>
+                                                            <SelectItem value="true">Yes</SelectItem>
+                                                            <SelectItem value="false">No</SelectItem>
+                                                        </SelectContent>
+                                                    </Select>
+                                                    <FormMessage className="dark:text-white" />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </div>{/* role */}
 
-                <div className="space-y-8">
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-
-                            <div className="flex flex-col md:flex-row justify-between gap-4">
-                                <div className="flex-1">
-                                    <FormField
-                                        control={form.control}
-                                        name="insideDhaka"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel className="font-yantramanav text-secondary text-base p-1">Inside Dhaka</FormLabel>
-                                                <Select
-                                                    onValueChange={(val) => field.onChange(val === "true")}
-                                                    defaultValue={field.value ? "true" : "false"}>
-                                                    <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                                        <SelectTrigger className="w-full">
-                                                            <SelectValue placeholder="Select a user role" />
-                                                        </SelectTrigger>
+                                    <div className="flex-1">
+                                        <FormField
+                                            control={form.control}
+                                            name="weight"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel className="font-yantramanav text-white text-base p-1">Parcel Weight</FormLabel>
+                                                    <FormControl className="border-0 border-b border-b-secondary rounded-none shadow-none p-0 ps-1 text-white placeholder:text-white">
+                                                        <Input type="number" min={1} placeholder="Write parcel weight" {...field} />
                                                     </FormControl>
-                                                    <SelectContent>
-                                                        <SelectItem value="true">Yes</SelectItem>
-                                                        <SelectItem value="false">No</SelectItem>
-                                                    </SelectContent>
-                                                </Select>
-                                                <FormMessage className="dark:text-white" />
-                                            </FormItem>
-                                        )}
-                                    />
-                                </div>{/* role */}
+                                                    <FormMessage className="dark:text-white" />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </div>{/* parcel weight */}
 
-                                <div className="flex-1">
-                                    <FormField
-                                        control={form.control}
-                                        name="weight"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel className="font-yantramanav text-secondary text-base p-1">Parcel Weight</FormLabel>
-                                                <FormControl className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary">
-                                                    <Input type="number" min={1} placeholder="Write receiver address" {...field} />
-                                                </FormControl>
-                                                <FormMessage className="dark:text-white" />
-                                            </FormItem>
-                                        )}
-                                    />
-                                </div>{/* parcel weight */}
-
-                            </div>{/* 2nd row */}
+                                </div>{/* 2nd row */}
 
 
-                            <Button type="submit" className="rounded-none dark:bg-secondary cursor-pointer">Calculate fee</Button>
+                                <Button type="submit" className="rounded-none bg-secondary dark:bg-primary cursor-pointer hover:border border-white">Calculate fee</Button>
 
-                            <Button
-                                type="button"
-                                className="rounded-none dark:bg-secondary cursor-pointer ms-3"
-                                onClick={() => {
-                                    form.reset();
-                                    setFee(null);
-                                }}
-                            >
-                                Clear
-                            </Button>
-                        </form>
-                    </Form>
-                    {
-                        fee && <h4>{fee}</h4>
-                    }
+                                <Button
+                                    type="button"
+                                    className="rounded-none bg-secondary dark:bg-primary cursor-pointer ms-3 hover:border border-white"
+                                    onClick={() => {
+                                        form.reset();
+                                        setFee(null);
+                                    }}
+                                >
+                                    Clear
+                                </Button>
+                            </form>
+                        </Form>
+                        {
+                            fee && <span className="text-2xl bg-secondary p-3 text-white border-x-4 border-primary">{fee}</span>
+                        }
 
-                </div> {/* calculator wrap */}
-
+                    </div>
+                </div>{/* calculator wrap */}
 
 
             </Container>
